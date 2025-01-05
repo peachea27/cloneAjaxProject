@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let heros = [
+        "아이언맨",
+        "캡틴아메리카",
+        "토르",
+        "헐크",
+        "비전",
+        "나타샤",
+        "블랙팬서",
+      ];
+
+      //for 문
+      for (let i = 0; i < heros.length; i++) {
+        if (i !== heros.length - 1) {
+          document.write(heros[i] + ",");
+          //document.write(heros[i].join(',');
+        } else {
+          document.write(heros[i]);
+        }
+      }
+      document.write("<hr />");
+      //for~in 문법
+      document.write("for~in<br />");
+      for (let ind in heros) {
+        document.write(heros[ind] + "<br />"); //for~in:인덱스를 처음부터 끝까지 하나씩 다 출력해줌
+      }
+
+      //for~of 문법
+      document.write(`for~of<br />`);
+      for (let hero of heros) {
+        document.write(hero + "<br />"); //for~of:배열 요소들을 처음부터 끝까지 하나씩 다 순환...
+      }
+
+      document.write("<hr />");
+      //forEach문법
+      document.write("forEach()<br />");
+      heros.forEach(function (item) {
+        //여기 forEach의 괄호 없고 맨뒤에 붙임
+        document.write(`요소는 ${item}입니다<br />`); //for of와 비슷하게 사용
+      });
+
+      document.write("<hr />");
+      heros.forEach(function (item, i) {
+        document.write(`${i}번째 요소에 있는 데이터는 ${item}입니다<br />`);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

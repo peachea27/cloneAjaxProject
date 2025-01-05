@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열 객체</title>
+    <script>
+      let str = new String("대한민국");
+      console.log(str);
+      console.log(typeof str); //object타입
+      console.log(str[0] + str[1] + str[2] + str[3]);
+      console.log(str[1]);
+      console.log(str[2]);
+      str[1] = "핸";
+      console.log(str); //대핸민국으로 바뀌지 않았음, 문자열은 배열같은거지 배열은 아니라서,, 인덱싱 가능하긴 하지만 수정 불가
+
+      str = "대한민국 우리나라 좋은나라";
+      document.write(str + "<br>");
+      document.write(str.charAt(2) + "<br>"); //민 2번 인덱스 문자를 출력
+      document.write(str.concat(" ", " 좋아요") + "<br>"); //스페이스바를 몇 개 더 넣어도 공백은 한 칸 이상은 안들어간다
+
+      //indexOf() : 일치하는 첫 번째 인덱스를 반환, 없으면 -1반환
+      document.write(str.indexOf("나") + "<br/>"); //7
+      document.write(str.indexOf("나", 8) + "<br/>"); //12 -str.indexOf(SearchValue[, fromIndex])
+
+      //lastIndexOf() : 역순으로 탐색하여, 최초로 마주치는 인덱스를 반환
+      document.write(str.lastIndexOf("나") + "<br>"); //12
+      document.write(str.lastIndexOf("민국") + "<br>"); //2 인덱스번호는 여전히 앞에서부터
+
+      str = "대한민국 우리나라 좋은나라";
+
+      //substr() : 사용하는 것이 바람직하지 않음 그러나 쓰는 경우가 꽤 보이니까..
+      //str.substr(star[,length])
+      document.write(str.substr(5, 4) + "<br>"); //우리나라
+      document.write(str.substr(10, 2) + "<br>"); //좋은
+      //글자 인덱스를 늘 셀 수는 없으니
+      document.write(str.substr(str.indexOf("좋은"), 2) + "<br>"); //좋은
+
+      //substring(): 시작 인덱스로부터 종료 인덱스 전까지 문자열의 부분 문자열을 반환
+      //str.substring(indexStart[, indexEnd]) ** 반환문자열의 마지막 인덱스 (포함하지 않음.)
+      document.write(str.substring(5, 9) + "<br>");
+
+      //English
+      let statement = "I am a sTudent"; //다 소문자로 나옴
+      document.write(statement.toLowerCase() + "<br>"); //소문자로 변환
+      document.write(statement.toUpperCase() + "<br>"); //대문자로 변환
+      //statement에서 student라는 단어를 추출해서 대문자로 변환하여 출력하시오.
+      document.write(statement.substr(7, 7) + "<br>");
+      document.write(statement.substring(7, 14) + "<br>");
+      document.write(statement.substring(7) + "<br>"); //7만 넣어도 됨
+      document.write(
+        statement.substr(statement.indexOf("sTudent"), 7) + "<br>"
+      );
+      document.write(statement.split(" ") + "<br>"); //공백으로 나누어서 문자열 배열로 반환
+      document.write(statement.split(" ")[3] + "<br>");
+      document.write(
+        statement.substr(statement.indexOf("sTudent"), "sTudent".length) +
+          "<br>"
+      );
+
+      let tmp = statement.split(" ");
+      console.log(tmp.reverse().join(" "));
+
+      //replace()
+
+      //trim() 메서드는 문자열 양 끝의 공백을 제거하고 원본 문자열을 수정하지 않고 새로운 문자열을 반환합니다.
+      let name = " 홍 길 동 ";
+      document.write("[" + name + "]" + "<br>"); //공백 있음
+      document.write("[" + name.trim() + "]" + "<br>"); //공백 있음
+      console.log(name.split(" ").reverse());
+
+      //'홍길동'
+      //가운데 있는 공백 제거??
+      console.log(name[1] + name[3] + name[5]);
+      console.log(name.replaceAll(" ", ""));
+      console.log(name.split(" ").join(""));
+      //정규식(Regular Expression)
+      console.log(name.replace(/\s/g, ""));
+    </script>
+  </head>
+  <body></body>
+</html>

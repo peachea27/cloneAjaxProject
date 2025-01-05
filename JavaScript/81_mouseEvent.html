@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/aebc8a6fa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let box = document.getElementById("box");
+        let tail = document.getElementById("tail");
+        console.log(tail);
+
+        box.addEventListener("mousemove", function (event) {
+          console.log(event);
+          tail.style.display = "block";
+          tail.style.top = `${event.clientY + 10}px`;
+          tail.style.left = `${event.clientX + 10}px`;
+
+          //   let mouseX = event.pageX + 10;
+          //   let mouseY = event.pageY + 10;
+
+          //   let cursor = document.querySelector(".cursor");
+          //   cursor.style.left = mouseX + "px";
+          //   cursor.style.top = mouseY + "px";
+        });
+      };
+    </script>
+    <style>
+      #box {
+        width: 300px;
+        height: 300px;
+        border: 10px solid slateblue;
+        position: relative;
+      }
+
+      #tail {
+        width: 50px;
+        height: 50px;
+        color: red;
+        position: absolute;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div id="tail" class="cursor">
+      <span id="heart"><i id="btn" class="fa-regular fa-heart"></i></span>
+    </div>
+  </body>
+</html>

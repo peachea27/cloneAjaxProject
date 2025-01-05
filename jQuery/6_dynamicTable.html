@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    dfd
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery를 이용하여 동적으로 행을 추가, 삭제하는 테이블 만들기</title>
+    <script>
+      //$().val()//input요소의 value값 가져오기
+      //이벤트 관련: $().click(), $().on('click',....)
+
+      $(function () {
+        //  $(".addBtn").click(function () {
+        $("table").on("click", ".addBtn", function () {
+          //on()메서드는 동적으로 생성된 요소에서도 이벤트를 발생
+          //click()메서드는 동적으로 생성된 요소에서도 이벤트를 발생시키지 못함
+          let copyTr = $(this).parent().parent(); //복사할 행을 할당
+          console.log(copyTr);
+          let newTr = copyTr.clone(); //복제
+          clearContents($(newTr).children()); //복사된 행의 input태그 안의 내용을 삭제
+          newTr.insertAfter(copyTr);
+        }); //addBtn핸들러
+
+        $("table").on("click", ".remBtn", function () {
+          // console.log($(this));
+          if ($("tr").length > 2) {
+            $(this).parent().parent().remove();
+          } else {
+            alert("더 이상 삭제할 수 없습니다");
+          }
+        });
+
+        function clearContents(tdArr) {
+          $.each(tdArr, function (index, item) {
+            $(item).children().val(""); //val()로 가져오면 그냥 인풋태그 값 그대로 가져오는 것, 반면 ""쓰면 셋팅해놓는것
+          });
+        }
+
+        $(".send").click(function () {
+          let data = new Array();
+
+          console.log($("tr").eq(1).children().eq(0).children().eq(0).val());
+
+          $("tr").each(function (i, e) {
+            let product = new Object();
+
+            //테이블의 헤드를 제외하고 값을 가져오자.
+            if (i > 0) {
+              //undefied가 안오게 조건
+              //   let prodNum = $(e).children().eq(0).children().eq(0).val();
+              //   console.log(prodNum);
+              //   let prodQty = $(e).children().eq(1).children().eq(0).val();
+              //   console.log(prodQty);
+              //   let prodPrice = $(e).children().eq(2).children().eq(0).val();
+              //   console.log(prodNum, prodQty, prodPrice);
+
+              //   //product객체 속성에 값 부여
+              //   product.prodName = prodName;
+              //   product.prodQty = prodQty;
+              //   product.prodPrice = prodPrice;
+
+              //   console.log(product);
+
+              $(e)
+                .children()
+                .each(function (ind, inputId) {
+                  if (ind < 3) {
+                    //0,1,2,번째 Id만
+                    console.log(ind, "--------------------");
+                    console.log($(inputId).children().attr("name"));
+                    product[$(inputId).children().attr("name")] = $(inputId)
+                      .children()
+                      .val();
+                  }
+                });
+              data.push(product);
+            }
+          }); //each()의 끝
+
+          console.log(data);
+          $("#jsonResult").html(JSON.stringify(data));
+        });
+      });
+
+      // let a = [1, 2, 3];
+      // //   let b = a;//a가 변하면 b도 변함(깊은 복사)
+      // let b = []; //얕은 복사
+      // console.log(a, b);
+
+      // a[0] = 100;
+      // console.log("a : ", a);
+      // console.log("b : ", b);
+
+      // for (let i = 0; i < a.length; i++) {
+      //   b[i] = a[i];
+      // }
+      //b=[]일때 a값이 들어가긴 했지만 a의 값이 변해도 b의 값은 변하지 않는다(얕은 복사)
+
+      //   $(document).ready(function () {
+      //     let prodName = $("input").eq(0).val();
+      //     let prodQty = $("input").eq(1).val();
+      //     let prodPrice = $("input").eq(2).val();
+
+      //     $(".addBtn").on("click", function () {
+      //       $("#mytable").append(
+      //         `prodName=${prodName}`
+      // `<tr id="mytablerow"><td>${prodName}</td><td>${prodQty}</td><td>${prodPrice}</td> <td><button class="addBtn">+</button></td> <td><button class="'remBtn">-</button></td></tr>`
+      // );
+
+      //$("#mytablerow").remove();
+      //});
+      //});
+      //   function plus() {
+      //     let prodName = $("input").eq(0).val();
+      //     let prodQty = $("input").eq(1).val();
+      //     let prodPrice = $("input").eq(2).val();
+      //     console.log(prodName, prodQty, prodPrice);
+
+      //     $("#mytable").append(
+      //       `<tr id="mytablerow"><td>${prodName}</td><td>${prodQty}</td><td>${prodPrice}</td> <td><button class="addBtn" onclick="plus2()">+</button></td> <td><button class="'remBtn" onclick="minus2()">-</button></td></tr>`
+      //     );
+
+      //     $("input").val("");
+      //   }
+
+      //   function minus() {
+      //     let prodName = $("input").eq(0).val();
+      //     let prodQty = $("input").eq(1).val();
+      //     let prodPrice = $("input").eq(2).val();
+
+      //     $("#mytablerow").remove();
+      //   }
+
+      //   function plus2() {
+      //     let prodName = $("input").eq(0).val();
+      //     let prodQty = $("input").eq(1).val();
+      //     let prodPrice = $("input").eq(2).val();
+      //     $("#mytablerow").append(
+      //       `<tr id="mytablerow2"><td>${prodName}</td><td>${prodQty}</td><td>${prodPrice}</td> <td><button class="addBtn" onclick="plus3()">+</button></td> <td><button class="'remBtn" onclick="minus3()">-</button></td></tr>`
+      //     );
+      //   }
+    </script>
+  </head>
+  <body>
+    <table id="mytable" border="1">
+      <tr>
+        <td>상품명</td>
+        <td>수량</td>
+        <td>가격</td>
+        <td>추가</td>
+        <td>삭제</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="proName" /></td>
+        <td><input type="text" name="proQty" /></td>
+        <td><input type="text" name="proPrice" /></td>
+        <td><button class="addBtn">+</button></td>
+        <td><button class="'remBtn">-</button></td>
+      </tr>
+    </table>
+    <button class="send">전송</button>
+    <div id="jsonResult"></div>
+  </body>
+</html>

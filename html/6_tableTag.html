@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그</title>
+</head>
+
+<body>
+    <h1>3행(row) 4열(column)짜리 표를 만들어 봅시다</h1>
+    <table border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+    </table>
+        <h2>2행 3열짜리 표를 만들어 봅시다</h2>
+        <table border="1">
+        <tr>
+            <td>a</td>
+            <td>s</td>
+            <td>d</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>f</td>
+            <td>d</td>
+        </tr>
+    </table>
+    <h2>테이블 셀의 병합</h2>
+    <table border="1">
+        <tr>
+            <td colspan="2">1</td>
+            <!--td>2</!--td-->
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td rowspan="2">8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <!--td>12</!--td-->
+        </tr>
+    </table>
+</body>
+</html>

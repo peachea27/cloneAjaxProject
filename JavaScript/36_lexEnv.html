@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let a=1;
+
+      function funcA(){
+          let a=10;
+          funcB();
+      }
+      function funcB(){
+          console.log(a);
+      }
+
+      funcA():1 b는 전역 범위에서 찍히기 때문에
+      funcB():1
+      //1.함수가 호출된 곳(동적 스코프 :dynamic scope)
+      //2.함수가 선언된 곳(정적 스코프: lexical scope/static scope-자바스크립트 )
+    </script>
+  </head>
+  <body></body>
+</html>

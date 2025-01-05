@@ -1,0 +1,7 @@
+127.0.0.1 - - [26/Aug/2024:13:58:59 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/ HTTP/1.1" 200 29807
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/images/addEmp.png HTTP/1.1" 200 964
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/getJobsData.do HTTP/1.1" 404 792
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/getAllEmp.do?orderMethod=employee_id HTTP/1.1" 200 155
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/getAllDept.do HTTP/1.1" 200 144
+0:0:0:0:0:0:0:1 - - [26/Aug/2024:13:59:06 +0900] "GET /AjaxJSP/getAllEmployees.do HTTP/1.1" 200 144

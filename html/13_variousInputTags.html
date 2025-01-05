@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--placeholder,textarea/checkbox name/radio/gender/label,select-option/hidden/email/file,color,age,min,max,range,step-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //자바스크립트 영역
+      function changesal(mama) {
+        console.log(mama.value);
+        document.getElementById("hopesal").innerHTML = mama.value;
+      }
+    </script>
+  </head>
+  <body>
+    <!--form without <-->
+    <form action="test.html" method="get">
+      <div>
+        <!--name에 value를 넣으면 그 값이 칸에 이미 들어가있음-->
+        name:<input
+          type="text"
+          placeholder="이름을 입력하세요☆"
+          maxlength="5"
+          name="username"
+        />
+      </div>
+      <div>
+        password:<input type="password" placeholder="put password" name="pwd" />
+      </div>
+      <div>memo:<textarea cols="10" rows="4" name="memo"></textarea></div>
+      <div>
+        <fieldset>
+          <legend>좋아하는 food:</legend>
+          <input type="checkbox" name="favorite food" value="jja" />noodles
+          <input type="checkbox" name="favorite food" value="kimchi" />soup
+          <input type="checkbox" name="favorite food" value="Mc" />hamburger
+        </fieldset>
+      </div>
+
+      <div>
+        gender:<!--without name-gender you can choose multiple/radio:round icon-->
+        <label for="label-female"
+          ><!--동그라미 뿐 아니라 글자도 클릭 가능, 라벨로 감싸주기-->
+          <input
+            type="radio"
+            name="gender"
+            value="fe"
+            id="label-female"
+          />female
+        </label>
+        <input type="radio" name="gender" value="ma" />male
+        <input type="radio" name="gender" value="un" />unknown
+      </div>
+      통신사:<!--select option은 value값이 없으면 옵션태그가 감싼 이름이 넘어가고 밸류를 넣어주면 그걸로 넘어감-->
+      <select name="comm">
+        <option>KT</option>
+        <option value="skt">에스케이</option>
+        <option>LGU+</option>
+      </select>
+
+      <div>
+        <input type="hidden" name="myhidden" value="10" />
+      </div>
+
+      <div>
+        생년월일:
+        <input type="date" name="birth" />
+      </div>
+
+      <div>
+        email:
+        <input type="email" name="useremail" />
+      </div>
+
+      <div>파일 업로드 <input type="file" /></div>
+
+      <div>
+        좋아하는 색상:
+        <input type="color" />
+      </div>
+
+      <div>나이:<input type="number" name="age" min="0" max="150" /></div>
+
+      <div>
+        희망연봉:<input
+          type="range"
+          min="3000"
+          max="9000"
+          step="100"
+          name="annualsalary"
+          onchange="changesal(this);"
+        /><span id="hopesal">6000</span>만원<!--js처리,js함수-->
+      </div>
+
+      <div>
+        <input type="reset" value="reset" />
+        <input type="submit" value="submit" />
+      </div>
+    </form>
+  </body>
+</html>

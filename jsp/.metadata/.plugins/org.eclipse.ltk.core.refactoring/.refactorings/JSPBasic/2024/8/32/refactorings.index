@@ -1,0 +1,15 @@
+1723088328344	Move 'hello.jsp' to 'webapp'
+1723088344780	Move 2 resources to 'webapp'
+1723090081058	Move file
+1723090091067	Delete element
+1723091029240	Move 'hello.jsp' to 'webapp'
+1723096546345	Delete element
+1723096568568	Copy compilation unit
+1723165119398	Delete element
+1723171426379	Delete element
+1723184192553	Rename type 'ServletLifeCycle'
+1723184203039	Rename type 'ServletLifeCycle1'
+1723190799759	Copy compilation unit
+1723190983456	Copy file
+1723191208507	Rename compilation unit 'GetParameterNameService.java'
+1723191851451	Move 'outputMember.jsp' to 'webapp'

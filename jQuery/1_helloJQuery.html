@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      // window.onload = function () {
+      $(document).ready(function () {
+        // document.getElementsByTagName('h1')[0].style.color='pink';
+        // console.log($("h1"));
+        // };
+        $("h1").css("color", "blue");
+        $("h2").eq(0).css("color", "orange"); //zero-based
+        $("h2").eq(1).css("color", "green");
+
+        // $("div").click(function () {
+        //   alert("jquery 참 쉽나요");
+        //   $(this).html("jQuery");
+        // });
+
+        $(".small").mouseover(function () {
+          $(".big").show("fast"); //slow, fast, 밀리초단위의 시간
+        });
+
+        $(".small").mouseout(function () {
+          $(".big").hide(3000); //3sec
+        });
+
+        function test() {
+          alert("test");
+        }
+        // }; //window.onload의 끝
+      });
+
+      test(); //window.onload안에서 선언했으므로 밖에서 호출하면 안됨/not defined
+
+      function a() {
+        alert("a");
+      } //반면 a함수는 onload안에서 호출해도 됨
+
+      function myfunc() {
+        alert("hello");
+      }
+
+      function displayBig() {
+        document.getElementsByClassName("big")[0].style.display = "block";
+      }
+
+      function displaySm() {
+        document.getElementsByClassName("big")[0].style.display = "none";
+      }
+    </script>
+    <style>
+      .big {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello jQuery</h1>
+    <h2>첫번째 h2</h2>
+    <h2>두번째 h2</h2>
+    <!-- <div onclick="myfunc();">
+      jQuery는 자바스크립트 코디을 좀 더 빠르고 편하게 사용할 수 있도록 하는
+      라이브러리입니다.
+      </div> -->
+    <div>
+      jQuery는 자바스크립트 코디을 좀 더 빠르고 편하게 사용할 수 있도록 하는
+      라이브러리입니다.
+    </div>
+    <div>
+      <!-- <img src="images/apples.jpg"  width="50%" onmouseover="displayBig();" onmouseout="displaySm();"/> -->
+    </div>
+    <div>
+      <img src="images/apples.jpg" width="50%" class="small" />
+    </div>
+    <div>
+      <img src="images/apples.jpg" class="big" />
+    </div>
+  </body>
+</html>

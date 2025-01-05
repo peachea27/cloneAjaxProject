@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //odd&even
+
+      //<짝수 찾기>
+      for (let i = 1; i < 11; i++) {
+        if (i % 2 == 0) {
+          //alert(i);
+        }
+      }
+
+      //[홀수 찾기]
+      for (let i = 0; i < 11; i++) {
+        if (i % 2 == 1) {
+          document.write("*");
+        }
+      }
+      document.write("<hr />");
+      document.write("<br />");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      //테이블 4행 3열 만드세요.(for문 1번만 사용)
+      //td태그 안에 0부터 1씩 증가하는 숫자가 들어가도록 하세요.
+
+      let outputTable = "<table border='1px solid black'>";
+
+      for (let i = 0; i < 4; i++) {
+        outputTable += `<tr><td>${3 * i}</td><td>${3 * i + 1}</td><td>${
+          3 * i + 2
+        }</td></tr>`;
+      }
+
+      //outputTable += `<tr><td>${cnt++}</td><td>${cnt++}</td><td>${cnt++}</td></tr>`;
+
+      outputTable += "</table>";
+      document.write(outputTable);
+      document.write("<br />");
+
+      //cnt++
+
+      //1부터 100까지의 합을 구해서 화면에 출력하세요.
+      //1+2+3+...+100?
+      let sum = 0; //이면 i가 1, i가 0이면 sum이 1
+
+      /*for (let i = 0; i < 11; i++) {
+        document.write(`${(i * (i + 1)) / 2}`);
+      }*/
+      let i = 0;
+      for (i = 1; i < 101; i++) {
+        console.log(sum + i);
+        sum = sum + i;
+      }
+
+      console.log("합: ", sum);
+      document.write("Sum: " + sum + "<br />");
+      document.write("산술합: " + (i * (i - 1)) / 2 + "<br />");
+
+      //1~100까지의 짝수합, 홀수합 구해서 화면에 출력하시오
+
+      let sum1 = 0,
+        sum2 = 0;
+
+      for (let i = 0; i < 101; i++) {
+        if (i % 2 == 0) {
+          sum1 = sum1 + i;
+        } else {
+          sum2 = sum2 + i;
+        }
+
+        console.log(sum1, sum2);
+      }
+
+      let oddSum = 0,
+        evenSum = 0;
+      for (let i = 0; i < 101; i++) {
+        if (i % 2 == 0) {
+          //짝수의 합
+          evenSum += i;
+        } else {
+          oddSum += i;
+        }
+      }
+      document.write(`홀수의 합: ${oddSum}<br />`);
+      document.write(`짝수의 합: ${evenSum}`);
+
+      let summ1 = 0,
+        summ2 = 0;
+
+      for (let i = 1; i < 100; i += 2) {
+        summ1 += i;
+        summ2 += i + 1;
+        console.log("*" + i, i + 1);
+      }
+
+      document.write("<br />홀수합1: " + summ1, " 짝수합1: " + summ2);
+
+      let summ3 = 0,
+        summ4 = 0;
+      for (let i = 0; i < 101; i++) {
+        summ3 = (i * i) / 4;
+        summ4 = (i * (i + 2)) / 4;
+      }
+      document.write("<br />홀수합: " + summ3 + ",짝수합: " + summ4);
+    </script>
+  </head>
+  <body>
+    <!--
+    <table>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+-->
+  </body>
+</html>

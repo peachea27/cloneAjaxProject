@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--max-width를 잘 사용하면 스크롤바 없이 작은 화면안에 모든 콘텐트가 들어가게 만들어서 유저의 사용성을 향상시킬 수 있음/ 그냥 width는 스크롤해야..-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MaxWidth</title>
+    <style>
+      .box1 {
+        width: 400px;
+        border: 2px solid lightcoral;
+      }
+      .box2 {
+        max-width: 400px;
+        border: 2px solid royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>max-width 속성</h1>
+    <div class="box1">이 div요소의 너비는 400px입니다.</div>
+    <div class="box2">이 div요소의 너비는 max-width 400px입니다.</div>
+  </body>
+</html>

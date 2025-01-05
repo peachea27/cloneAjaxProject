@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        const elt = document.getElementById("child2");
+        console.log(elt);
+        console.log(document.getElementsByClassName("child"));
+        const elt1 = document.querySelector(".child:first-child");
+        console.log(elt1);
+        const nodeList = document.querySelectorAll(".child");
+        console.log(nodeList);
+        console.log(document.querySelector(".child"));
+        nodeList.forEach((el) => console.log(el.textContent)); //텍스트만
+
+        console.log(Array.from(nodeList)); //유사배열 -> 배열
+        // console.log(nodeList.reverse()); //nodeList.reverse is not a function
+        console.log(Array.from(nodeList).reverse());
+
+        const elt2 = document.querySelector(".child"); //첫번째 차일드를 선택
+        console.log(elt2.parentElement); //그의 부모 반환
+
+        //Node.previousSibling, Node.nextSibling
+        //노드의 이전 형제, 다음 형제 노드를 반환 //element가 없을때
+        console.log(elt2.previousSibling); //element가 없는 태그, 노드를 반환
+        console.log(elt2.nextSibling); //element가 없는 태그, 노드를 반환
+        console.log(elt2.previousElementSibling); //null, 첫번째라 이전 형제 요소가 없음
+        console.log(elt2.nextElementSibling); //다음형제요소
+        console.log(elt2.previousSibling.parentElement);
+
+        const eltParent = document.querySelector(".parent");
+        console.log(eltParent.children); //요소의 모든 자식 요소를 반환
+
+        console.log(eltParent.firstElementChild);
+        console.log(eltParent.lastElementChild);
+      };
+    </script>
+  </head>
+  <body>
+    <div class="parent">
+      <!--주석-->
+      <div class="child">content-1</div>
+      text1
+      <div class="child" id="child2">content-2</div>
+      text2
+    </div>
+  </body>
+</html>

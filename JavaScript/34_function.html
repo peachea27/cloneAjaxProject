@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 정의 함수의 기본 운용법</title>
+    <script>
+      //함수호출, 위에서 호출해도 상관없지만 아래에 모아두는게 바람직하다
+
+      function addTwoNumbers(num1, num2) {
+        document.write(num1 + num2);
+      }
+      addTwoNumbers(3, 5);
+      document.write("<br />");
+      //함수선언
+
+      function sayhello() {
+        document.write("hello");
+      }
+      sayhello();
+      document.write("<br />");
+
+      function sayHi(times) {
+        for (let i = 0; i < times; i++) {
+          document.write("Hi");
+        }
+      }
+      sayHi(5);
+
+      function addTwoNumbersWithReturnValue(num1, num2) {
+        //두 수를 더한 후, 반환
+        let result = num1 + num2;
+        return result;
+      }
+
+      let sum = addTwoNumbersWithReturnValue(10, 20);
+      console.log(sum);
+      console.log(addTwoNumbersWithReturnValue(10, 20));
+
+      //함수 인수의 기본값을 줄 수 있다.
+      function sumTwoNums(a, b = 20) {
+        console.log("sumTwoNums 함수: ", a, b, a + b);
+      }
+      sumTwoNums(10); //하나만 넣으면 b는 기본값인 20이 들어감
+      sumTwoNums(100, 200);
+
+      function sumThree(a, b, c) {
+        console.log("sumThree함수", a, b, c, a + b + c);
+        sumTwoNums(100, 200); //함수 안에서도 호출할 수 있다
+      }
+
+      sumThree(10);
+      sumThree(10, 20);
+      sumThree(10, 20, 30);
+
+      //지역, 전역 변수
+      let gNum = 100; //전역변수
+      console.log(test());
+
+      function test() {
+        let gNum = 200;
+        let lNum = 5;
+        console.log(lNum);
+        return gNum;
+      }
+      //console.log(lNum);//함수의 바디 안에서만 실행 가능
+
+      let gVar = "global";
+
+      function myfunc() {
+        let lVar = "local";
+        console.log(lVar);
+        console.log(gVar);
+
+        function innerFunc() {
+          console.log(lVar);
+          let innerVar = "inner";
+        }
+        innerFunc();
+        //console.log(innerVar);//지역변수 인식 못함
+      }
+      myfunc();
+
+      // 익명 함수
+      let add = function (a, b) {
+        return a + b;
+      };
+
+      console.log(add(100, 200));
+
+      //즉시 실행 함수
+      let add1 = (function () {
+        return 300 + 400;
+      })();
+      console.log(add1);
+
+      let add2 = (function (a, b) {
+        return a + b;
+      })(1000, 2000);
+      console.log(add2);
+    </script>
+  </head>
+  <body></body>
+</html>

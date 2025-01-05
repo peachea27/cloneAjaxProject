@@ -1,0 +1,15 @@
+package com.lee.controller;
+
+import java.sql.SQLException;
+
+import com.lee.controller.service.FriendManagementService;
+
+public class SearchByNameService implements FriendManagementService {
+
+	@Override
+	public void toDo() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+
+	}
+
+}

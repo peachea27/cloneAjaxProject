@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘 뭐 먹지?</title>
+    <script>
+      //랜덤하게 메뉴를 추천해주는 프로그램 작성
+      //1~7 사이의 랜덤한 수를 뽑아서, 그 수가
+      //1: 짜장면, 2: 김치찌개, 3: 돈까스, ..., 7: 라면
+      //1)난수를 생성
+
+      function ranImg() {
+        let randNum = 0;
+        randNum = Math.floor(Math.random() * 7 + 1); //0이상 1미만의 실수 랜덤하게 생성
+        console.log(Math.floor(randNum));
+
+        //
+        let img = "";
+        if (randNum == 1) {
+          img = "images/apples.jpg";
+        } else if (randNum == 2) {
+          img = "images/jjajang.jpg";
+        } else if (randNum == 3) {
+          img = "images/chicken.jpg";
+        } else if (randNum == 4) {
+          img = "images/fishbread.jpg";
+        } else if (randNum == 5) {
+          img = "images/hotdog.jpg";
+        } else if (randNum == 6) {
+          img = "images/kimchi.jpg";
+        } else if (randNum == 7) {
+          img = "images/samg.jpg";
+        }
+        console.log(randNum, img);
+        document.getElementById("foodImg").src = img;
+      }
+      //}
+
+      //1~7 사이의 랜덤한 수
+      //(Math.random(), Math.floor()를 이용)
+    </script>
+  </head>
+  <body>
+    <h1>오늘의 추천 메뉴</h1>
+    <div id="foodName"></div>
+    <div id="foodImgArea">
+      <img onclick="ranImg()" id="foodImg" src="images/apples.jpg" alt="" />
+    </div>
+  </body>
+</html>

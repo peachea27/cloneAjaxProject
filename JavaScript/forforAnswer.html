@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let tableout = "<table border='1'>";
+      let cnt = 0;
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 3; j++) {
+          tableout += "<td>${cnt++}</td>";
+        }
+        tableout += "</tr>";
+      }
+      tableout = "</table>";
+      document.write(tableout);
+    </script>
+  </head>
+  <body></body>
+</html>

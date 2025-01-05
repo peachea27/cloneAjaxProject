@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성자 함수를 이용하여 객체 생성 및 사용하기</title>
+    <script>
+      function Account(owner, accNum, balance) {
+        //객체를 생성할 땐 카멜이 아니라 파스칼 표기법 (대문자), 구분을 위해//이게 클래스?
+        this.owner = owner;
+        this.accNum = accNum;
+        this.balance = balance;
+        this.name = "직장인 비과세 예금";
+        this.bankName = "우리은행";
+
+        console.log(this);
+
+        //객체의 기능 부여 (메서드)
+        this.checkBalance = function () {
+          return this.balance;
+        };
+        this.deposit = function (money) {
+          this.balance += money;
+        };
+        this.withdraw = function (money) {
+          if (this.balance >= money) {
+            this.balance -= money;
+          } else {
+            window.alert("잔액이 부족합니다.");
+          }
+        };
+      }
+
+      // 객체 생성//객체에서 순서는 중요하지 않음, 어떤값에 무엇이 들어가느냐의 문제
+      let acc1 = new Account("홍길동", "1111-222-33-45677", 500);
+      console.log(acc1);
+
+      document.write(`예금주 : ${acc1.owner}<br>`);
+      document.write(`계좌번호 : ${acc1.accNum}<br>`);
+      document.write(`잔액 : ${acc1.balance}<br>`);
+
+      //예금하기
+      acc1.deposit(3000000);
+      document.write(`예금 후 잔액 : ${acc1.balance}<br>`);
+
+      //   acc1.withdraw(2000000);
+      //   document.write(`인출 후 잔액 : ${acc1.balance}<br>`);
+
+      let acc2 = new Account("둘리", "1111-222-33-45688", 0);
+    </script>
+  </head>
+  <body></body>
+</html>

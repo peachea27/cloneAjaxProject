@@ -1,0 +1,16 @@
+package com.lee.dao;
+
+import java.util.List;
+
+import com.lee.vo.Friend;
+
+public class FriendsMgmDaoImpl implements FriendsMgmDAO{
+
+	@Override
+	public List<Friend> selectAllFriends() {
+		
+		
+		return null;
+	}
+
+}

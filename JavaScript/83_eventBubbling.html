@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event bubbling</title>
+    <script>
+      window.onload = function () {
+        let box1 = document.getElementById("box1");
+        let box2 = document.getElementById("box2");
+        let box3 = document.getElementById("box3");
+
+        window.addEventListener("click", () => console.log("window"));
+        document.addEventListener("click", () => console.log("document"));
+        //왜 콘솔창에 윈도우가 다큐먼트보다 먼저 나올까?
+        document.body.addEventListener(
+          "click",
+          (event) => {
+            console.log("body");
+            //event.stopPropagation();//버블링 전파를 중지
+          },
+          { capture: true } //이벤트를 먼저 실행시킴 콘솔창에 바디부터, 이미 이벤트실행시 가로채서 바디부터 찍었기 때문에 doc과 win만 찍힘
+        );
+        //body>documnet>window
+        box1.addEventListener("click", () => console.log("box1"));
+        box2.addEventListener("click", () => console.log("box2"));
+        box3.addEventListener("click", () => console.log("box3"));
+        // >box 3 > box2 > box1 > body > document > window
+      };
+    </script>
+    <style>
+      #box1 {
+        width: 400px;
+        height: 300px;
+        background-color: crimson;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #box2 {
+        width: 300px;
+        height: 200px;
+        background-color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #box3 {
+        width: 200px;
+        height: 100px;
+        background-color: burlywood;
+        text-align: center;
+        line-height: 100px;
+        /* height와 똑같이 주기 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1">
+      <div id="box2">
+        <div id="box3">EventBubbling</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function check(obj) {
+        //      console.log(obj);
+        console.log(obj.value.length);
+        document.getElementsByTagName("span")[0].innerHTML = obj.value.length;
+      }
+
+      //focus
+      //blur : focus를 잃었을 때
+      window.onload = function () {
+        let inputTag2 = document.getElementById("txt2");
+        inputTag2.addEventListener("focus", () => {
+          inputTag2.style.backgroundColor = "lightgreen";
+        });
+
+        inputTag2.addEventListener("blur", () => {
+          inputTag2.style.backgroundColor = "white";
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="userInput" onkeyup="check(this);" />
+    </div>
+    <div><span></span>자 입력중...</div>
+    <div><input type="text" id="txt2" /></div>
+    <div><input type="text" id="txt3" /></div>
+  </body>
+</html>

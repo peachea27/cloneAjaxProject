@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일반동위,형제,이웃 선택자</title>
+    <style>
+      div ~ p {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sibling Selector</h1>
+    <p>Sibling Selector로 스타일을 꾸미면 어떻게 될까요?</p>
+    <div>
+      <p>div내부 p태그(div의 자식)</p>
+      <p>div내부 p태그(div의 자식)</p>
+      <p>div내부 p태그(div의 자식)</p>
+    </div>
+    <p>div 외부의 p태그1</p>
+    <p>div 외부의 p태그2</p>
+    <p>div 외부의 p태그3</p>
+  </body>
+</html>

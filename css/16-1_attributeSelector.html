@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성 선택자</title>
+    <style>
+      a[target="_blank"] {
+        padding-right: 40px;
+        background: url(../css/images/expand.png) no-repeat right center;
+        background-size: 20px;
+      }
+      a[class="button"] {
+        color: red; /*같은 button class라도 a[이런식으로 접근하면 딱 그 클래스만 적용*/
+      }
+      a[class~="button"] {
+        color: red; /*대충 버튼 클래스가 들어가면 다 적용하자*/
+      }
+      a[href*="developer"] {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          target="_blank"
+          >html</a
+        >
+      </li>
+      <li>
+        <a href="https://www.iconfinder.com/search?q=expand&price=free">css</a>
+      </li>
+      <li>
+        <a
+          href="https://www.w3schools.com/css/tryit.asp?filename=trycss_pseudo-class_links"
+          class="button"
+          >javascript</a
+        >
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/ko/">jquery</a>
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          class="button flat"
+          >ajax</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

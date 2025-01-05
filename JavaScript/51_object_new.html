@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사용자 정의 객체</title>
+    <script>
+      let account = new Object();
+      console.log(typeof account);
+      console.log(account);
+
+      //account 객체에 속성을 부여해보자.
+      account.owner = "홍길동";
+      console.log(account); //owner(key):홍길동(value)
+      account.accNum = "1111-222-33-45677"; //계좌번호
+      account.balance = 500; //전액
+      account.name = "직장인 비과세 예금"; //금융상품 이름
+      account.bankName = "우리은행"; //은행이름
+
+      //[] 이용해서 속성 부여
+      account["no"] = "123456";
+      let accNum = "no";
+      account[accNum] = "98765"; //123456이 98765로 바뀜
+      console.log(account);
+
+      console.log(account.name);
+
+      document.write(`예금주 : ${account.owner}<br>`);
+      document.write(`계좌번호 : ${account.accNum}<br>`);
+      document.write(`잔액 : ${account.balance}원<br>`);
+
+      //예금 하기, 인출하기, 잔액조회하기 - > 기능 (메서드)을 부여할 수 있다.
+
+      account.deposit = deposit; //함수가 아닐때
+      console.log(deposit); //콘솔값: ƒ deposit(money) {
+      //   account.balance += money;
+      //   } 함수 자체가 찍힘
+      console.log(account.deposit);
+
+      account.deposit(3000000);
+      account.deposit(1000000); //계속 늘어남
+      console.log(account);
+
+      //잔액조회하기
+      account.checkBalance = inquiery; //부여//함수이름과 일치하게 적어줘야//함수로 찍으면 함수자체로 나오니까 데이터로 넘겨주기 위해 이렇게 표기//좌측이 document.getby~같이 메서드 이름
+      console.log(account.checkBalance());
+      console.log(account.balance);
+
+      //인출하기
+      //account.widthDraw = withDraw;
+      account.withDraw = function withDraw(money) {
+        if (this.balance >= money) {
+          this.balance -= money;
+        } else {
+          window.alert("잔액이 부족합니다");
+        }
+      }; //이렇게 적어도 윗줄과 같은 기능
+
+      account.withDraw(500000);
+      console.log(account.checkBalance()); //.checkBalance에 inquiery 함수를 담았으니 .checkBalance도 실행가능
+      console.log(account.balance);
+
+      account.withDraw(3000000);
+      console.log(account.checkBalance());
+
+      account.withDraw(3000000);
+      console.log(account.checkBalance());
+
+      // function withDraw(money) {
+      //   this.balance -= money;
+      // }
+
+      function inquiery() {
+        //잔액만 보여주면 되기 때문에 매개변수 필요없음
+        return this.balance;
+      }
+
+      function deposit(money) {
+        this.balance += money; //this는 deposit이 수식하는 account를 의미
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

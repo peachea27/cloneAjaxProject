@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex01</title>
+    <style>
+      .container {
+        display: flex; /*가로정렬, 부모요소에 설정해준다.*/
+        width: 700px;
+        background-color: darkgray;
+        margin-bottom: 30px;
+      }
+
+      .box {
+        width: 80px;
+        background-color: darkcyan;
+        margin: 5px; /*가로로 정렬됐을 땐 마진이 중첩되지 않음*/
+        padding: 5px 45px;
+        text-align: center;
+      }
+      #container1 {
+        flex-direction: row;
+        /*이게 기본값/주축을 가로로 지정/왼쪽에서 오른쪽으로 차곡차곡*/
+      }
+      #container2 {
+        flex-direction: column;
+      }
+      #container3 {
+        flex-direction: row-reverse;
+      }
+      #container4 {
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container1">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container2">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container3">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container4">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+</html>

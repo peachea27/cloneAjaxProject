@@ -1,0 +1,5 @@
+package com.lee.controller.service;
+
+public class OutputEntireFriendService {
+
+}

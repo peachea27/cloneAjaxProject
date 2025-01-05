@@ -1,0 +1,22 @@
+<!DOCTYPE html><!--input,maxlength-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formtag</title>
+</head>
+<body>
+    <h1>Log in</h1>
+    <!--form method="Get" or "Post"/action"데이터를 전송받은 파일--원래 get은 로그인에 사용하지 않지만 우린 post를 못쓰니까-->
+    <form method="get" action="">
+        <div>
+            id:<input type="text" maxlength="8" name="userid"></div>
+        <div>password:<input type="password" name="userpwd"></div>
+        <div>
+            <input type="reset" value="cancel"/>
+            <input type="submit" value="log in"/>
+        </div>
+    </form>
+
+</body>
+</html>

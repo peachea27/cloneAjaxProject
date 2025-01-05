@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex04:주축정렬 방법을</title>
+    <style>
+      .container {
+        display: flex; /*가로정렬, 부모요소에 설정해준다.*/
+        width: 700px;
+        background-color: darkgray;
+        margin-bottom: 30px;
+      }
+
+      .box {
+        width: 80px;
+        background-color: darkcyan;
+        margin: 5px;
+        padding: 5px 45px;
+        text-align: center;
+      }
+      #container1 {
+        /*주축의 시작점에 맞춰서 배치*/
+        justify-content: flex-start;
+      }
+      #container2 {
+        /*주축의 끝점에 맞춰서 배치*/
+        justify-content: flex-end;
+      }
+      #container3 {
+        justify-content: center;
+      }
+      #container4 {
+        /*첫항목과 끝항목을 주축의 시작점과 끝점에 배치한 후 나머지 항목은 그 사이에 같은 간격으로 배치*/
+        justify-content: space-between;
+      }
+      #container5 {
+        justify-content: space-around;
+        /*모든 블록의 왼오 여백 동일*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container1">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container2">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container3">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container4">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <div class="container" id="container5">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠키 main page</title>
+    <script src="js/commonJS.js"></script>
+    <script>
+      window.onload = function () {
+        //처음엔 뜨지만 하루동안 보지 않기를 체크한 유저라면 팝업창을 띄우지 않는다.
+        console.log(readCookie("notice"));
+        if (readCookie("notice") !== "Y") {
+          window.open(
+            "87-1_sub.html",
+            "sub",
+            "top=200, left=200, width=600, height=400"
+          );
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Main Page</h1>
+  </body>
+</html>

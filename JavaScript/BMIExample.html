@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function bbutton() {
+        let weightt = Number(document.getElementById("wweight").value);
+        let heightt = Number(document.getElementById("hheight").value);
+        //window.onload = function () {
+
+        // };
+
+        let bmi = weightt / (heightt * heightt * 0.0001);
+        console.log(weightt, heightt, bmi);
+        let result = "";
+        if (bmi < 18.5) {
+          result = "저체중";
+        } else if (bmi >= 18.5 && 22.9 >= bmi) {
+          result = "정상";
+        } else if (bmi >= 23 && 24.9 >= bmi) {
+          result = "비만전단계";
+        } else if (bmi >= 25 && 29.9 >= bmi) {
+          result = "1단계 비만";
+        } else if (bmi >= 30 && 34.9 >= bmi) {
+          result = "2단계 비만";
+        } else {
+          bmi >= 35;
+          result = "3단계 비만";
+        }
+
+        document.getElementById(
+          "bbmi"
+        ).innerHTML = `당신의 BMI 신체질량지수는 ${bmi}입니다.`;
+        document.getElementById("rresult").innerHTML = result;
+      }
+    </script>
+  </head>
+  <style></style>
+  <body>
+    <div>
+      키():
+      <input id="hheight" type="number" placeholder="키를 입력해 주세요" /> m
+    </div>
+    <div>
+      몸무게:
+      <input id="wweight" type="number" placeholder="몸무게를 입력해 주세요" />
+      <div>
+        <button onclick="bbutton()">제출</button>
+      </div>
+      <div id="bbmi"></div>
+      <div id="rresult"></div>
+    </div>
+  </body>
+</html>

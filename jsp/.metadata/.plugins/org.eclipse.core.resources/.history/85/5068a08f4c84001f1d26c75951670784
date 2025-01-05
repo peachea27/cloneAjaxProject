@@ -1,0 +1,5 @@
+package com.miniproject.exception.controller;
+
+public class SampleExceptionController {
+
+}

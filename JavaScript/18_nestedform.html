@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중첩 for (for문 안에 다른 for문)</title>
+    <script>
+      for (let i = 0; i < 3; i++) {
+        console.log("=", 1);
+        for (let j = 0; j < 2; j++) {
+          console.log("i=", i, "j=", j);
+        }
+      }
+
+      for (let i = 0; i < 4; i++) {
+        //i=0,1,2,3
+        document.write("☆");
+        for (let j = 0; j < 3; j++) {
+          //j=0,1,2
+          document.write("★");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

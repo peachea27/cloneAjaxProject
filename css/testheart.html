@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      li {
+        display: inline;
+      }
+      #big {
+        display: none;
+      }
+    </style>
+    <script>
+      function sizeup() {
+        document.getElementById("big").style.display = "block";
+      }
+      function sizedown() {
+        document.getElementById("big").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <img
+        src="images/star.png"
+        width="100px"
+        onmouseover="sizeup();"
+        onmouseout="sizedown();"
+      />
+    </div>
+    <div id="big">
+      <img src="images/star.png" alt="" />
+    </div>
+  </body>
+</html>

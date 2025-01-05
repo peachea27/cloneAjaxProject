@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miniproject.mappers.hboardmapper">
+
+<!-- 게시판의 모든 게시글을 번호 내림차순으로 정렬하여 가져오는 쿼리문 -->
+ <select id="getAllHBoard" resultType="com.miniproject.model.HBoardVO">
+<!--  select * from hboard order by boardNo desc -->
+select * from hboard order by ref desc, refOrder asc
+ </select>
+ 
+ 
+<!--  새로운 게시글을 저장하는 쿼리문 -->
+ <insert id="saveNewBoard">
+ 	insert into hboard(title, content, writer) values (#{title}, #{content}, #{writer})
+ </insert>
+ 
+<!--  저장된 글번호 가져오는 쿼리문 -->
+<select id="getMaxNo" resultType="int">
+	select max(boardNo) from hboard
+</select>
+
+<!-- 업로드 된 첨부파일을 저장하는 쿼리문 -->
+<insert id="saveUpFile">
+insert into boardupfiles (newFileName, originFileName, thumbFileName, ext, size, boardNo, base64Img)
+values(#{newFileName}, #{originFileName}, #{thumbFileName}, #{ext}, #{size}, #{boardNo}, #{base64Img}) 
+</insert>
+
+<!-- 게시판 글 조회 (게시판번호 이용) -->
+<select id="getBoardByNo" resultType="HBoardDTO">
+select * from hboard where boardNo = #{boardNo};
+</select>
+
+<select id="getFilesByNo" resultType="BoardUpFilesVODTO">
+select * from boardupfiles where boardNo = #{boardNo};
+</select>
+
+<!-- resyltMap 연습 -->
+
+<resultMap type="HBoardDTO" id="boardResultMapTest">
+	<id column="boardNo" property ="boardNo" javaType="int"/>
+	<result column="title" property="title" javaType="String"/>
+	<result column="content" property="content" javaType="String"/>
+	<result column="writer" property="writer" javaType="String"/>
+
+	<collection column = "boardNo" property="fileList" ofType="BoardUpFilesVODTO" javaType="java.util.List" select="getFilesByNo"></collection>
+</resultMap>
+
+<select id="selectResultmapTest" resultMap="boardResultMapTest">
+	select boardNo, title, content, writer from hboard where boardNo = #{boardNo}
+</select>
+
+<resultMap type="com.miniproject.model.BoardDetailInfo" id="boardDetailInfoMap">
+	<result column="boardNo" property="boardNo" javaType="int"/>
+	<result column="title" property="title" javaType="String"/>
+	<result column="content" property="content" javaType="String"/>
+	<result column="writer" property="writer" javaType="String"/>
+	<result column="postDate" property="postDate" javaType="java.sql.Timestamp"/>
+	<result column="readCount" property="readCount" javaType="int"/>
+	<result column="ref" property="ref" javaType="int"/>
+	<result column="step" property="step" javaType="int"/>
+	<result column="refOrder" property="refOrder" javaType="int"/>
+	<result column="isDelete" property="isDelete" javaType="String"/>
+	
+	<result column="userName" property="userName" javaType="String"/>
+	<result column="email" property="email" javaType="String"/>
+	
+	<collection property="fileList" ofType="BoardUpFilesVODTO" javaType="java.util.List">
+		<result column="boardUpFileNo" property="boardUpFileNo" javaType="int"/>
+		<result column="newFileName" property="newFileName" javaType="String"/>
+		<result column="originFileName" property="originFileName" javaType="String"/>
+		<result column="thumbFileName" property="thumbFileName" javaType="String"/>
+		<result column="ext" property="ext" javaType="String"/>
+		<result column="size" property="size" javaType="long"/>
+		<result column="boardNo" property="boardNo" javaType="int"/>
+		<result column="base64Img" property="base64Img" javaType="String"/>
+	</collection>
+</resultMap>
+
+<select id="selectBoardDetailInfoByBoardNo" resultMap="boardDetailInfoMap">
+	select h.boardNo, h.title, h.content, h.writer, h.postDate, h.readCount,
+	h.ref, h.step, h.refOrder,h.isDelete, f.*, m.userName, m.email
+	from hboard h left outer join boardupfiles f
+	on h.boardNo = f.boardNo
+	inner join member m 
+	on h.writer = m.userId
+	where h.boardNo = #{boardNo};
+</select>
+
+<!-- 조회수 처리 -->
+<!-- ipAddr의 유저가 boardNo글을 언제 조회했는지 날짜차이(단, 조회한 적이 없다면 -1 반환) -->
+<select id="selectBoardDateDiff" resultType="int">
+select ifnull(datediff(now(),
+	(select readWhen from boardreadlog where readWho = #{readWho} and boardNo = #{boardNo} )) , -1) 
+    as datediff;
+</select>
+
+<!-- BoardReadLog에 조회한 내역 저장 -->
+<insert id="saveBoardReadLog">
+	insert into boardreadlog(readwho, boardNo) values(#{readWho}, #{boardNo});
+</insert>
+
+<!-- 조회수 증가처리문 -->
+<update id="updateReadCount">
+	update hboard set readCount = readCount + 1 where boardNo = #{boardNo};
+</update>
+
+<!-- 24시간 지난 아이피 주소가 기존에 읽었던 글을 다시 읽을때 타임 업데이트 -->
+<update id="updateBoardReadLog">
+update boardreadlog set readWhen = now() where readWho = #{readWho} and boardNo = #{boardNo};
+</update>
+<update id="updateBoardRef">
+update hboard set ref = #{boardNo} where boardNo =  #{boardNo}
+
+</update>
+
+<update id="updateBoardRefOrder">
+update hboard set refOrder = refOrder + 1 
+where ref = #{ref} and refOrder > #{refOrder}
+</update>
+
+<!-- 답글 입력데이터와 함께 ref, step, refOrder값 저장 -->
+<insert id="insertReplyBoard">
+insert into hboard(title, content, writer, ref, step, refOrder) 
+values (#{title},#{content},#{writer},#{ref},#{step},#{refOrder})
+</insert>
+
+<!-- 삭제처리 -->
+<!-- boardNo번 글을 삭제(update) -->
+<update id="deleteBoardByBoardNo">
+update hboard set isDelete = 'Y', title='', content=''
+where boardNo=#{boardNo}
+</update>
+
+<!-- 업로드파일삭제 -->
+<delete id="deleteBoardUpfileByPK">
+select * from boardupfiles where boardNo=#{boardNo}
+</delete>
+
+<!-- <update id="updateY"> -->
+<!-- delete from hboard where boardNo = #{boardNo}  -->
+<!-- update hboard set isDelete='Y' where boardNo=#{boardNo} -->
+<!-- </update> -->
+
+<update id="modifyCont">
+update hboard set title=#{title},content=#{content} where boardNo=#{boardNo}
+</update>
+</mapper> 

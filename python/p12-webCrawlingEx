@@ -1,0 +1,65 @@
+import requests
+from bs4 import BeautifulSoup
+# import pymysql
+import urllib.request
+
+targetUrl = "https://lemite.com/product/list.html?cate_no=43"
+baseUrl = "https://lemite.com"
+headers = {'User-Agent' : 'Mozilla/5.0'}
+resp = requests.get(targetUrl, headers=headers)
+resp.encoding = 'utf-8'
+html = resp.text
+#print(html)
+
+if html is not None : #웹문서를 로딩했다면...
+    html = BeautifulSoup(html, 'html.parser') #html로 파싱
+    # print(html) #터미널에 찍힌건 같아보이지만 아까는 텍스트였다면 지금은 html태그
+
+#예외처리
+    try : #아래의 코드를 수행해 봐서
+        products = html.find('ul', class_='prdList column4')
+        print(products)
+    except : #예외가 발생했다면
+        print('파싱할 상품이 없습니다')
+    else : #예외가 발생하지 않았다면
+        products = products.find_all('li', class_='item xans-record-')
+        for item in products :
+            #print(item)
+            # print(item.find('p', class_='name').find('a').attrs['href'])
+            
+            # 상세페이지 주소
+            detailPage = baseUrl +item.find('p',class_='name').find('a').attrs['href']
+            #print(detailPage)
+
+            #상품명
+            productName = item.find('p', class_='name').text.split(":")[1].strip()
+            # print(productName)
+
+            #상품 번호
+            "/product/detail.html?product_no=62927&amp;cate_no=43&amp;display_group=1"
+            pkStartPos = detailPage.find('product_no=') + len('product_no=')
+            pkEndPos = detailPage.find('&',pkStartPos)
+            productNo = detailPage[pkStartPos:pkEndPos]
+            # print(productNo)
+
+            # 썸네일 이미지
+            thumbNailImg = 'https:'+ item.find('div',class_='prdimg').find('img').attrs['src']
+            # print(thumbNailImg)
+
+            #상품 간략 설명
+            description = item.find('li',class_='xans-record-').text.split(":")
+            print(description)
+
+            #상품 가격
+            print(productNo, productName, thumbNailImg, description)
+            print('----------------------------------------')
+
+            #이미지 저장
+            imgPath ="D:\\testThumbNails\\"
+            urllib.request.urlretrieve(thumbNailImg, imgPath + "thumbNail_"+
+            productNo + "." + thumbNailImg[-4:])
+
+             
+
+
+

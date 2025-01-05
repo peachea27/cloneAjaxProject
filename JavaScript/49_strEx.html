@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //우영우 기러기, eye, madam
+      //앞에서 읽으나 뒤에서 읽으나 똑같은 단어를 회문이라고 한다.
+      // 유저에게 문자열을 입력받아 입력된 문자가 회문인지 아닌지 판단하는 함수를 만드세요
+      //입력된 문자열이 회문이면 true, 아니면 false를 반환하도록 만드세요.
+
+      //추가 영어는 다 소문자로 바꾸고 어파스트로피 등 없애기 등... 글자가 모두 같은 우우우같은 단어는 회문이 아님
+
+      let str = "abcba";
+      //   let str ='abcdef';
+      // let str ='aaa';//다같은걸 false로 판단하는 함수를 만들어서 true && false면 회문으로 판단
+      //every를 써서 첫글자가 나머지와 같은지 판단?
+      //0번째와 나머지를 하나하나 비교
+      //str*0을 한다고?
+
+      //5->2번 반복 7이면 3번 반복 9면 4번 반복
+
+      isPalin(str);
+
+      function isPalin(str) {
+        let strHalf = parseInt(str.length / 2);
+        console.log(strHalf);
+        for (let i = 0; i < strHalf; i++) {
+          console.log(i);
+          if (str[i] == str[str.length - 1 - i]) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      function checkAllSame(str) {
+        //모두 같으면 true, 하나라도 다르면 false 반환
+        for (let i = 0; i < str.length; i++) {}
+      }
+
+      ///half 안해도 됨
+      //0-4
+      //   1-3
+      //   2;
+      //   3-1
+      //   4-0
+      isPalin1(str);
+      function isPalin(str) {
+        let strHalf = parseInt(str.length / 2);
+        console.log(strHalf);
+        for (let i = 0; i < strHalf; i++) {
+          console.log(i);
+          if (str[i] !== str[str.length - 1 - i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function isPalin2(str) {
+        //이건 aabbbaa같은 케이스에 적용 안됨
+        let strHalf = parseInt(str.length / 2);
+        console.log(strHalf);
+        for (let i = 0; i < strHalf; i++) {
+          console.log(i);
+          if (str[i] !== str[str.length - 1 - i] || str[0] == str[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" />
+    <button onclick="checkChar()">확인</button>
+    <div id="field"></div>
+  </body>
+</html>

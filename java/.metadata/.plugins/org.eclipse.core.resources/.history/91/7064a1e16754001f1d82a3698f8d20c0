@@ -1,0 +1,19 @@
+package com.lee.controller.service;
+
+import java.sql.SQLException;
+
+import com.lee.dao.FriendsMgmDAOImpl;
+
+public class OutputEntireFriendService implements FriendManagementService{
+
+	
+	@Override
+	public void toDo() throws ClassNotFoundException, SQLException {
+		System.out.println("전체 친구 조회하러 가기");
+		FriendsMgmDAOImpl fmd = FriendsMgmDAOImpl.getInstance();
+		
+		fmd.selectAllFriends();
+	}
+	
+}
+

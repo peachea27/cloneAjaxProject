@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex07-0405중요,0607참고</title>
+    <style>
+      .container {
+        width: 200px;
+        height: 150px;
+        display: flex;
+        flex-flow: row wrap;
+        background-color: darkgray;
+        margin: 30px;
+      }
+      .box {
+        width: 80px;
+        background-color: darkcyan;
+        border: 1px solid #fff;
+      }
+      /*주축에서 줄바꿈이 생겨서 플렉스 items를 여러줄로 표시할 때 align-content를 사용하여 교차축에서 플렉스 아이템들 간의 간격을 지정한다.*/
+      #container1 {
+        align-content: flex-start;
+      }
+      #container2 {
+        align-content: flex-end;
+      }
+      #container3 {
+        align-content: center;
+      }
+      #container4 {
+        align-content: space-between;
+      }
+      #container5 {
+        align-content: space-around;
+      }
+      #container6 {
+        align-content: stretch;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container1">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+    <div class="container" id="container2">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+    <div class="container" id="container3">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+    <div class="container" id="container4">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+    <div class="container" id="container5">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+    <div class="container" id="container6">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+    </div>
+  </body>
+</html>

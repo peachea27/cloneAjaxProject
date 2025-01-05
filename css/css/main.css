@@ -1,0 +1,5 @@
+@import url("mycss.css");
+
+p {
+  border: 1px dotted blue;
+}

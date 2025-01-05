@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const STU_CNT = 5;
+      let scores = new Array(STU_CNT);
+      let stuNo=["101010","123010","134010","104510","101410"];
+      let name=["홍길동","김길동","라길동","나길동", "한길동" ];
+      let kor=[100, 77, 77,77,47];
+      let eng=[95,82,10,50,80];
+      let math=[90,90,90,90,90,];
+      let rank=[];
+      // scores[0] = ["101010", "홍길동", 100, 95, 90];
+      // scores[1] = ["123010", "김길동", 77, 82, 90];
+      // scores[2] = ["134010", "라길동", 77, 10, 90];
+      // scores[3] = ["104510", "나길동", 77, 50, 90];
+      // scores[4] = ["101410", "한길동", 47, 80, 90];
+
+
+     // let scores=[["101010", "홍길동", 100, 95, 90],
+      // ["123010", "홍ㅇ동", 77, 82, 90], 
+      // ["134010", "ㄹ길동", 77, 10, 90],
+      // ["104510", "ㄴ길동", 77, 50, 90],
+      // ["101410", "ㅎ길동", 47, 80, 90]]
+      //이렇게 행렬을 만들 수 있다
+      //window.onload = function () {
+        
+        for(let i=0; i <STU_CNT; i++){
+          scores[i]=new Array(9);
+        }
+      
+        console.log(scores.length,scores[0].length);
+
+      for (let i = 0 ;i < scores.length; i++){
+        for(let j=0 ;j < scores[i].length; j++){
+          scores[j]=[stuNo[j],name[j],kor[j],eng[j],math[j]];
+        }
+      }
+
+      function calScores(){
+        //총점,평균
+        for (let i = 0; i < scores.length; i++) {
+          scores[i][5] = scores[i][2] + scores[i][3] + scores[i][4];//총점
+          scores[i][6] = Math.floor(scores[i][5] / 3);//평균
+          scores[i][7]=calGrade(scores[i][6]);//학점
+        }
+      }
+
+      function calGrade(average){
+
+        switch (Math.floor(average / 10)) {
+        case 10:
+        case 9:
+          return "A";
+         
+
+        case 8:
+        return "B";
+          
+
+        case 7:
+        return "C";
+  
+
+        case 6:
+        return "D";
+       
+
+        default:
+        return "F";
+      }
+
+      }
+     
+  
+
+      function orderScores() {
+        let order = ""; //elementS!
+        let radios = document.getElementsByName("order");
+       // console.log(radios);
+        for (let radio of radios) {
+         // console.log(radio.checked);
+          if (radio.checked == true) {
+           // console.log(radio.value);
+            order = radio.value;
+          }
+        }
+        reOrder(order); 
+        let tableout= outputScores();
+        document.getElementById('rankTable').innerHTML=tableout;
+      }
+
+    
+      function reOrder(orderMethod){
+        //재정렬하는 함수
+        //console.log(orderMethod);
+        for (let i = 0; i < scores.length - 1; i++) {
+          for (let j = i + 1; j < scores.length; j++) {
+            if(orderMethod=='desc'){
+              //내림차순
+            if (scores[i][6] < scores[j][6]) {
+              let tmp = scores[i]; //행이 통째로 움직여야 한다[i][6]은 금물
+              scores[i] = scores[j];
+              scores[j] = tmp;
+            }
+            calRank();//등수
+          }else //if(orderMethod==='asc')
+          {
+            //오름차순
+           // for (let i = 0; i < scores.length - 1; i++) {
+            //for (let j = i + 1; j < scores.length; j++) {
+              if (scores[i][6] > scores[j][6]) {
+                let tmp = scores[i];
+                scores[i] = scores[j];
+                scores[j] = tmp;
+              }
+              calRank();
+            }
+           }
+          }
+        }
+     
+        function calRank(){
+        for(let i=0;i<scores.length;i++){
+          let rank=1;
+          for(let j=0; j<scores.length;j++){
+            if(scores[j][6]>scores[i][6]){
+              rank++;
+            }
+          }
+          scores[i][8]=rank;
+        }
+        }
+
+      function outputScores(){
+        let tableLast = "<table class='table'>";//bootstrap5 표 스타일을 헤드에 붙여주고 테이블 클래스 테이블을 써준다
+
+      for (let i = 0; i < scores.length; i++) {
+      tableLast += "<tr>";
+      for (let j = 0; j < scores[0].length; j++) {
+       tableLast += `<td>${scores[i][j]}</td>`;
+       }
+       tableLast += "</tr>";
+        }
+      tableLast += "</table>";
+      return tableLast;
+      }
+
+      window.onload=function(){
+      calScores();
+      console.log(scores);
+      reOrder('desc');
+      let tableout=outputScores();//테이블태그 생성
+      document.getElementById('rankTable').innerHTML=tableout;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>정렬 전 테이블</h1>
+  </body>
+    <div id="scoretable"></div>
+    <h1>정렬 후 테이블</h1>
+    <div id="sortedTable"></div>
+    <h1>등수테이블</h1>
+    <div id="rankTable"></div>
+    <input type="radio" name="order" id="'desc" value="desc" checked />내림차순
+    정렬 <input type="radio" name="order" id="asc" value="asc" />오름차순 정렬
+    <button class="btn btn-danger" onclick="orderScores();">정렬</button>
+  </body>
+</html>

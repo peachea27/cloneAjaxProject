@@ -1,0 +1,37 @@
+print('100') #문자열 : 큰따옴표, 작은따옴표
+print("%d" %(100+1))
+print("요 자리%d에 찍어보자" %1000)
+print("%d %d"% (500,100))
+
+# %d(10진수), %x(16진수), %o(8진수)
+# %f (실수)
+# %c : 한자리 문자
+# %s : 문자열
+
+print("%f" %3.14)
+print("%5.2f" %3.14)
+print("%3.2f" %3.14)
+print("%23.18f" % 3.14)
+print("%10d" %100)
+print("%2d" %12345)
+print(" %06d" %123)
+
+print("%s"% "PYTHON")
+print("%8s" % "PYTHON")
+
+print("%d %5d %05d" % (123, 123, 123))
+print("{0:d} {1:5d} {2:05d}".format(123, 123, 123))
+
+print("요렇게 하면 콘솔창에서 \\n은 \n 줄바꿈")
+print("\\t는 탭\t을 누른 효과")
+print("글자가 \"큰따옴표\" 적용")
+print(r"\n \t \" \\를 그대로 출력")
+
+name = "dooly"
+age = 10
+print("제 이름은 {}입니다. 저는 {}살 입니다".format(name,age))
+print(f"제 이름은 {name}입니다. 저는 {age}살 입니다")
+
+numb = 42
+print(f"16진법: {numb:x}, 8진법 :{numb:o}, 2진법 : {numb:b}")
+

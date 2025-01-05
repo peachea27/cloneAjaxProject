@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbasic.mappers.memberMapper">
+ <select id="getDateTime" resultType="string">
+ 	select now()
+ </select>
+ 
+ <insert id="insertMember">
+ insert into member values(#{userId}, sha1(md5(#{userPwd})), #{userEmail}, #{userMobile},#{userImg},
+#{userGender}, #{hobbies}, #{job}, #{memo}, #{isAdmin})
+ </insert>
+ 
+ <update id="updateMember">
+ 	update member set userImg = #{userImg} where userId = #{userId}
+ </update>
+ 
+ <delete id="deleteMember">
+ 	delete from member where userId =#{userId}
+ </delete> 
+ <select id="viewAllMember" resultType="com.springbasic.domain.MemberDTO" >
+ 	select * from member
+ </select>
+ 
+ <select id="viewMemberByUserId" resultType="com.springbasic.domain.MemberDTO">
+ 	select * from member where userId = ${userId}
+ </select>
+ 
+ <select id="loginMember" resultType="com.springbasic.domain.MemberDTO">
+ 	select * from member where userId = #{userId} and userPwd= sha1(md5(#{userPwd}))
+ </select>
+ 
+ <select id="insertM">
+ insert into member values(#{userId},sha1(md5(#{userPwd})),#{userEmail},#{userMobile},#{userGender},#{hobbies},#{job},#{userImg},#{memo},#{isAdmin})
+ </select>
+</mapper> 

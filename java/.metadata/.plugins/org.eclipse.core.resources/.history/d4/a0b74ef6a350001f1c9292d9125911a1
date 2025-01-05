@@ -1,0 +1,10 @@
+package lee.famaccount;
+
+public class FamAccMain {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

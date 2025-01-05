@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>various tags</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        name:<input
+          type="text"
+          name="name"
+          maxlength="5"
+          placeholder="what's your name?"
+        />
+      </div>
+      <div>
+        password:<input type="password" name="pwd" placeholder="pass!" />
+      </div>
+      <div>memo:<textarea cols="3" rows="2" name="memo"></textarea></div>
+      <div>
+        <fieldset>
+          <legend>food</legend>
+          <input type="checkbox" name="food" value="noo" />df
+          <input type="checkbox" name="food" value="soo" />sd
+          <input type="checkbox" name="food" value="hamm" />df
+        </fieldset>
+      </div>
+      <div>
+        <label for="fe">
+          gender:
+          <input type="radio" name="gender" value="male" id="fe" />male</label
+        >
+        <label for="ma">
+          <input type="radio" name="gender" value="female" id="ma" />
+          female</label
+        >
+      </div>
+      <div>
+        통신사:
+        <select name="moblile">
+          <option>kt</option>
+          <option>skt</option>
+          <option>lg</option>
+        </select>
+        <div>birth:<input type="date" name="birth" /></div>
+        <input type="hidden" name="hidden" value="moron" />
+      </div>
+      <div>email:<input type="email" name="email" /></div>
+      <div>파일업로드:<input type="file" /></div>
+      <div>color:<input type="color" /></div>
+      <div>age:<input type="number" max="150" min="0" name="age" /></div>
+      <div>salary:<range min:3000 max:9000 step:100 onchange="change">
+        <span id="result">6000</span></div></range>
+    </form>
+  </body>
+</html>

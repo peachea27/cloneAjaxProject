@@ -1,0 +1,12 @@
+package com.lee.controller.service;
+
+public class OutputEntireFriendService implements FriendManagementService{
+
+	
+	@Override
+	public void doDo() {
+		System.out.println("전체 친구 조회하러 가기");
+	}
+	
+}
+

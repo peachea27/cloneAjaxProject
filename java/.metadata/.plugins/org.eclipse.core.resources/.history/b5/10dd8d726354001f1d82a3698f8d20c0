@@ -1,0 +1,18 @@
+package com.lee.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.lee.vo.Friend;
+
+public class FriendsMgmDaoImpl implements FriendsMgmDAO{
+
+	@Override
+	public List<Friend> selectAllFriends() throws ClassNotFoundException, SQLException {
+		Connection con = DBConnection.getConnection();
+		
+		return null;
+	}
+
+}

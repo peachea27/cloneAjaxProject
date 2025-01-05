@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최대값, 최소값 구하기</title>
+    <script>
+      //1~100까지의 랜덤한 수 10개를 배열에 넣어두고
+      //그 랜덤 수들 중에 max(최대값), min(최소값)을 각각 구해
+      //테이블로 출력하세요(1행 10열)
+      //단, max값은 빨간색, min값은 파란색으로 배경 적용
+      //1,5,3,7,2
+
+      let randomNumber = new Array(10);
+      let cnt = 0;
+
+      for (let i = 0; i < randomNumber.length; i++) {
+        randomNumber[i] = Math.floor(Math.random() * 100 + 1);
+      }
+
+      tableTag = "<table border=1><tr>";
+      for (i = 0; i < 10; i++) {
+        tableTag += `<td>${randomNumber[cnt++]}</td>`;
+      }
+      tableTag += `</tr></table>`;
+
+      document.write(tableTag);
+
+      //
+
+      let max = 0;
+      let min = 100; //미니멈이 0이면 그 이하가 없으니까
+      let tds = document.getElementsByTagName("td");
+      //**********************************************************************************************
+      for (let td of tds) {
+        if (Number(td.innerHTML) >= max) {
+          max = Number(td.innerHTML);
+        }
+        if (Number(td.innerHTML) <= min) {
+          min = Number(td.innerHTML);
+        }
+      }
+      //**********************************************************************
+
+      for (let td of tds) {
+        if (Number(td.innerHTML) == max) {
+          td.style.backgroundColor = "red";
+        }
+      }
+
+      for (let td of tds) {
+        if (Number(td.innerHTML) == min) {
+          td.style.backgroundColor = "blue";
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list style image</title>
+    <style>
+      .normal {
+        list-style-image: url(images/03.png);
+      }
+      .inside li {
+        list-style-position: inside; /*들여쓰기*/
+        list-style-type: none;
+        padding: 0 0 8px 25px;
+        background: url(images/expand.png) no-repeat 0px 1px;
+        background-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="normal">
+      <li>짜장면</li>
+      <li>짬뽕</li>
+      <li>볶음밥</li>
+      <li>탕수육</li>
+    </ul>
+    <ul class="inside">
+      <li>짜장면</li>
+      <li>짬뽕</li>
+      <li>볶음밥</li>
+      <li>탕수육</li>
+    </ul>
+  </body>
+</html>

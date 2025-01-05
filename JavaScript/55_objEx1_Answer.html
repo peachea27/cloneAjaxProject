@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 가로로 하거나 좁아지면 일렬로 되도록 만들며 css연습을 해보세요 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function Car(brandName, carName, color, description, carImg, link) {
+        this.brandName = brandName;
+        this.carName = carName;
+        this.color = color;
+        this.description = description;
+        this.carImg = carImg;
+        this.link = link;
+      }
+
+      let cars = [];
+      cars.push(
+        new Car( //new는 메모리영역에 잡는 연산자?
+          "kia",
+          "k9",
+          "white",
+          "기아에서 2012년 출시한 후륜구동 모델이다.",
+          "images/ST1_COVER.jpg",
+          "https://www.hyundai.com/kr/ko/e/all-vehicles"
+        )
+      );
+
+      cars.push(
+        new Car(
+          "Genesis",
+          "gv80",
+          "white",
+          "제네시스의 첫번째 SUV",
+          "images/poter2.jpg",
+          "https://www.hyundai.com/kr/ko/e/all-vehicles"
+        )
+      );
+
+      cars.push(
+        new Car(
+          "Volvo",
+          "xc",
+          "black",
+          "기아에서 출시",
+          "images/Kona.jpg",
+          "https://www.hyundai.com/kr/ko/e/all-vehicles"
+        )
+      );
+
+      console.log(cars);
+      console.log(JSON.stringify(cars));
+      console.log(JSON.parse(JSON.stringify(cars)));
+
+      let output = ""; //그냥 let output;을 하면 undefined상태가 되어 오류의 원인이 될 수 있다
+      cars.forEach(function (item) {
+        output += `<div class="card">`;
+        output += `<img class="card-img-top" src=${item.carImg} alt="Card image" style="width:100%">`;
+        output += ` <div class="card-body">
+      <h4 class="card-title">${item.carName}</h4>`;
+        output += ` <p class="card-text">${item.description}</p>`;
+        output += `<a href="${item.link}" class="btn btn-primary">홈페이지 가기</a> </div></div>`;
+      });
+
+      console.log(output);
+
+      window.onload = function () {
+        document.getElementById("catalog").innerHTML = output;
+      };
+    </script>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      .card {
+        margin: 10px;
+        width: 100%;
+      }
+
+      #catalog {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h1>차량 소개</h1>
+      <div id="catalog"></div>
+    </div>
+  </body>
+</html>

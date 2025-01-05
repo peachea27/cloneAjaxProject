@@ -1,0 +1,26 @@
+package com.lee.controller;
+
+import com.lee.controller.service.FriendManagementService;
+import com.lee.controller.service.OutputEntireFriendService;
+import com.lee.controller.service.SaveFriendService;
+
+public class Action {
+
+	/* 싱글톤 */
+	public FriendManagementService getService(int menu) {
+		
+		FriendManagementService result = null;
+		
+		switch (menu) {
+		case 1:
+			result =new OutputEntireFriendService();
+			break;
+		case 2:
+			result = new SaveFriendService();
+			break;
+		case 9:
+			System.exit(0); /* 사실 정리안된 상태에서 종료는 좋은 방법은 아님, 불리안을 false하든가 하는 방법이 낫다 */
+		}
+		return result;
+	}
+}

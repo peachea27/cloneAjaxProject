@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블럭요소와 인라인 요소</title>
+    <style>
+      h1 {
+        background-color: yellow;
+      }
+      div,
+      p {
+        border: 1px solid violet;
+      }
+      .accent {
+        border: 1px dotted red;
+        font-weight: 800;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+        border: 2px solid crimson;
+        padding-top: 20px;
+        margin-top: 20px;
+      }
+      .img {
+        text-align: center;
+      }
+      a {
+        background-color: greenyellow;
+        /*width: 100px; height*는 적용 안됨*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1>시간이란...</h1>
+    <div>dfdsdfd <span class="accent">오늘</span> 을today</div>
+    <p>
+      forever dfwr<br />
+      ewrew tomorrow....
+    </p>
+    <div class="img">
+      <img src="images/03.png" alt="주우구" />
+      <img src="images/03.png" alt="중국" />
+      <img src="images/03.png" alt="중국" />
+    </div>
+    <div>
+      <a href="https://naver.com">네이버</a>
+      <a href="https://naver.com">네이버</a>
+      <a href="https://naver.com">네이버</a>
+    </div>
+  </body>
+</html>

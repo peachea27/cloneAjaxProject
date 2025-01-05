@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열을 이용한 성적표</title>
+    <script>
+      let arr = new Array(5);
+      let table = "<table border=1>";
+      let total = 0,
+        avg = 0;
+      let arr2 = new Array(5);
+      //let arr3 = new Array(5);
+
+      arr[0] = ["010202", "가", 30, 90, 100];
+      arr[2] = ["020202", "나", 40, 90, 100];
+      arr[1] = ["030303", "다", 50, 90, 100];
+      arr[3] = ["040404", "라", 60, 90, 100];
+      arr[4] = ["050505", "마", 70, 90, 100];
+
+      for (i = 0; i < arr[0].length; i++) {
+        console.log(arr[i][2]);
+        total = arr[i][2] + arr[i][3] + arr[i][4];
+        avg = total / 3;
+        arr2[i] = [total, avg];
+      }
+
+      console.log(arr2);
+      arr[0] = ["010202", "가", 30, 90, 100, arr2[0][1], avg[0][2]];
+      arr[2] = ["020202", "나", 40, 90, 100, arr2[1][1], avg[1][2]];
+      arr[1] = ["030303", "다", 50, 90, 100, arr2[2][1], avg[2][2]];
+      arr[3] = ["040404", "라", 60, 90, 100, arr2[3][1], avg[3][2]];
+      arr[4] = ["050505", "마", 70, 90, 100, arr2[4][1], avg[4][2]];
+      for (let i = 0; i < arr.length; i++) {
+        table += "<tr>";
+        for (let j = 0; j < arr[0].length; j++) {
+          table += "<td>" + arr[i][j] + "</td>";
+        }
+        table += "</tr>";
+      }
+      table += "</table>";
+
+      document.write(table);
+    </script>
+  </head>
+  <body></body>
+</html>

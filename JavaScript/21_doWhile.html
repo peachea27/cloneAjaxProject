@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doWhile</title>
+    <script>
+      //사용자에게 숫자를 입력받는다.
+      //단, 숫자를 입력하지 않으면 숫자를 입력할 때까지 계속 입력받도록 하고,
+      //숫자가 입력되면 입력된 숫자를 화면에 출력하라.
+
+      //   let data = window.prompt("숫자를 입력하시오");
+      //   //숫자를 입력하면 true 문자는 false
+      //   if (isFinite(data)) {
+      //     document.write(`입력하신 숫자는 ${data}입니다.`);
+      //   } else {
+      //     data = window.prompt("숫자를 입력하시오");
+      //     document.write(`입력하신 숫자는 ${data}입니다.`);
+      //   } //이렇게 하면 문자를 두번 연속 입력하면 그냥 넘어감
+      //   //if문은 계속 반복이 어려움
+
+      //   let num1 = window.prompt("숫자를 입력하시오");
+      //   //while의 괄호안이 참일때 계속 반복시키는 것
+      //   while (!isFinite(num1)) {
+      //     //!isFinite(num1):문자를 입력하면 계속 반복, 숫자는 finite문자는 notfinite
+      //     num1 = window.prompt("숫자를 입력하시오");
+      //   }
+      //   document.write(`입력하신 숫자는${num1}입니다`);
+
+      let num2 = 0;
+
+      //while에 중복코드가 많을 때 do는 더 간결하게 할 수 있음
+
+      do {
+        num2 = window.prompt("숫자를 입력하세요");
+        // console.log(num2);
+      } while (!isFinite(num2));
+
+      document.write(`입력하신 숫자는${num2}입니다`);
+    </script>
+  </head>
+  <body></body>
+</html>

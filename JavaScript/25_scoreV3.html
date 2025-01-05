@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>성적표</title>
+    <script>
+      //사용자에게 이름,국어, 영어, 수학 점수를 입력받아, 총점 평균을 구하고, 학점을 구해 테이블로 출력하는 프로그램 작성
+      //1차원 배열을 이용하여 만드세요.
+      //let student=[]
+
+      //       for (i = 0; i < 7; i++) {
+
+      //      student[i]=window.prompt(`${student[i]}데이터를 입력하세요`)
+      //입력값이 날아가지 않게 앞에 student[i]로 받아줌
+      //       }
+
+      //student[4]=Number(student[1])+Number(student[2])+Number(student[3]);
+      //student[5]=student[4]/3;
+
+      //   switch(Math,floor(student[5]/10)){
+      //     case 10:
+      //     case 9:
+      //         student[6]='A';
+      //     break;
+      //     case 8:
+      //         student[6]='B';
+      //     break;
+      //     case 7:
+      //         student[6]='C'
+      //         break;
+      //     case 6:
+      //     student[6]='D'
+      //     break;
+      //     default:
+      //     student[6]='F'
+
+      //   }
+
+      let urName = window.prompt("이름을 입력하세요");
+      let urKor = Number(window.prompt("국어 성적을 입력하세요"));
+      let urEng = Number(window.prompt("영어 성적을 입력하세요"));
+      let urMath = Number(window.prompt("수학 성적을 입력하세요"));
+
+      let urTotal = urKor + urEng + urMath;
+      let urAvg = (urTotal / 3).toFixed();
+      let urGrade;
+
+      if (urAvg <= 100 && urAvg >= 90) {
+        urGrade = "A";
+      } else if (urAvg < 90 && urAvg >= 80) {
+        urGrade = "B";
+      } else if (urAvg < 80 && urAvg >= 70) {
+        urGrade = "C";
+      } else if (urAvg < 70 && urAvg >= 60) {
+        urGrade = "D";
+      } else {
+        urGrade = "F";
+      }
+      let student = [urName, urKor, urEng, urMath, urTotal, urAvg, urGrade];
+      console.log(student);
+
+      let tableTag = "<table border=1px>";
+      tableTag +=
+        "<tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>학점</td></tr><tr>";
+
+      for (i = 0; i < 7; i++) {
+        //7말고 student.length
+        tableTag += "<td>" + student[i] + "</td>";
+      }
+
+      tableTag += "</tr></table>";
+
+      window.onload = function () {
+        document.getElementById("tableHere").innerHTML = tableTag;
+      };
+
+      //   //출력하기
+      //   let output = "<table?<tr>";
+
+      //   for (let i = 0; i < student.length; i++) {
+      //     output += <th>${student[i]}</th>;
+      //   }
+
+      //   output = +"</tr><tr>";
+      //   for (let i = 0; i <student.length; i++) {
+      //     output+='<td>${student[i]}</td>';
+      //   }
+
+      //   output=+'</tr></table>';
+      //   console.log(output);
+
+      // window.onload=function(){
+      //     document.getElementById('tableHere').innerHTML=output;
+      // }
+    </script>
+  </head>
+  <body>
+    <h1>성적표 v3</h1>
+    <div id="tableHere"></div>
+  </body>
+</html>

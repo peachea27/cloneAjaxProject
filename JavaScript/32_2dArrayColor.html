@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const STU_CNT = 5;
+      let scores = new Array(STU_CNT);
+      scores[0] = ["101010", "홍길동", 100, 95, 90];
+      scores[1] = ["123010", "홍ㅇ동", 77, 82, 90];
+      scores[2] = ["134010", "ㄹ길동", 77, 10, 90];
+      scores[3] = ["104510", "ㄴ길동", 77, 50, 90];
+      scores[4] = ["101410", "ㅎ길동", 47, 80, 90];
+
+      console.log(scores);
+
+      for (let i = 0; i < scores.length; i++) {
+        scores[i][5] = scores[i][2] + scores[i][3] + scores[i][4];
+        scores[i][6] = Math.floor(scores[i][5] / 3);
+
+        if (scores[i][6] <= 100 && scores[i][6] >= 90) {
+          scores[i][7] = "A";
+        } else if (scores[i][6] < 90 && scores[i][6] >= 80) {
+          scores[i][7] = "B";
+        } else if (scores[i][6] < 80 && scores[i][6] >= 70) {
+          scores[i][7] = "C";
+        } else if (scores[i][6] < 70 && scores[i][6] >= 60) {
+          scores[i][7] = "D";
+        } else {
+          scores[i][7] = "F";
+        }
+      }
+      let output = "<h1>정렬 전 테이블</h1><br /><table border=1>";
+      output +=
+        "<tr><td>학번</td><td>이름</td><td>영어</td><td>수학</td><td>국어</td><td>총점</td><td>평균</td><td>학점</td></tr>";
+
+      for (let i = 0; i < scores.length; i++) {
+        output += "<tr>";
+        for (let j = 0; j < scores[0].length; j++) {
+          output += `<td>${scores[i][j]}</td>`;
+        }
+        output += "</tr>";
+      }
+      output += "</table>";
+
+      //추가문제:평균을 기준으로 내림차순으로 정렬하세요
+
+      let table = `<h1>정렬 후 테이블</h1><br /><table border=1>`;
+
+      for (let i = 0; i < scores.length - 1; i++) {
+        for (let j = i + 1; j < scores.length; j++) {
+          if (scores[i][6] < scores[j][6]) {
+            let tmp = scores[i]; //행이 통째로 움직여야 한다[i][6]은 금물
+            scores[i] = scores[j];
+            scores[j] = tmp;
+          }
+        }
+      }
+      for (let i = 0; i < scores.length; i++) {
+        if (scores[i][6] > scores[i + 1][6]) {
+          scores[i][8] = `${i + 1}등`;
+        } else if (scores[i][6] == scores[i + 1][6]) {
+          scores[i][8] = `${i + 1}등`;
+          scores[i + 1][8] = scores[i][8];
+        }
+      }
+
+      console.log(scores);
+
+      table +=
+        "<br /><tr><td>학번</td><td>이름</td><td>영어</td><td>수학</td><td>국어</td><td>총점</td><td>평균</td><td>학점</td><td>등수</td></tr>";
+
+      for (let i = 0; i < scores.length; i++) {
+        table += "<tr>";
+        for (let j = 0; j < scores[0].length; j++) {
+          table += `<td>${scores[i][j]}</td>`;
+        }
+        table += "</tr>";
+      }
+      table += "</table>";
+      window.onload = function () {
+        document.getElementById("scoretable").innerHTML = output;
+        document.getElementById("scoretable2").innerHTML = table;
+
+        let max = 0,
+          min = 100;
+        for (let i = 0; i < scores.length; i++) {
+          if (scores[i][6] > max) {
+            max = scores[i][6];
+          } else if (scores[i][6] < min) {
+            min = scores[i][6];
+          }
+          console.log(min, max);
+        }
+      };
+
+      let tds = document.getElementsByTagName("td");
+
+      for (let td of tds) {
+        if (Number(td.innerHTML) == max) {
+          td.style.backgroundColor = "pink";
+        } else if (Number(td.innerHTML) == min) {
+          td.style.backgroundColor = "lightblue";
+        }
+      } //색을 넣는게 적용되려면 마지막에 업로드될 필요가 있다?
+      //테이블태그부터 먼저 실행되고 색이 입혀져야, 꾸미기 먼저 한 후 테이블태그가 실행되면 효과없음
+
+      //추가문제
+      //등수를 매겨 보세요
+      //평균을 기준으로 등수를 매겨 보되, 평균이 같으면 순위는 같다.
+
+      //   }
+    </script>
+  </head>
+  <body>
+    <div id="scoretable"></div>
+    <div id="scoretable2"></div>
+  </body>
+</html>

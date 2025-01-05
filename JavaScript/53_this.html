@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this</title>
+    <script>
+      //1.
+      console.log(this); //스크립트에 아무것도 안쓰고 디스를 콘솔에 찍으면 window객체가 뜬다..최상위 객체
+
+      //2.
+      func();
+      function func() {
+        console.log(this); //얘도 윈도우 객체가 뜸
+      }
+
+      //3.
+      const obj = {
+        fullname: "홍길동",
+        balance: 500,
+        sayHello: function () {
+          //:function을 없애도 똑같음
+          console.log("Hello!");
+          console.log(this);
+        },
+      };
+      obj.sayHello(); //일반함수가 아니라 메서드기 때문에 이렇게 호출해야, 매서드를 포함하고 있는 객체를 찍어야,, 우리가 쓰는 함수들은 사실 윈도우객체의 멤버들, obj가 윈도우 같은 역할
+
+      //
+      const objobj = {
+        innerobj: {
+          fullname: "둘리",
+          sayHi: function () {
+            console.log("Hi~");
+            console.log(this);
+          },
+        },
+      };
+      objobj.innerobj.sayHi();
+
+      // 화살표 함수의 this
+      const objobj1 = {
+        innerobj: {
+          fullname: "둘리",
+          sayHi: () => {
+            console.log("Hi~");
+            console.log(this.fullname); //undefined, 그냥 함수일땐 둘리가 나오는데 화살표 함수에선 안나옴
+          },
+        },
+      };
+      objobj1.innerobj.sayHi();
+
+      //상위 함수 만들기
+      function outFunc() {
+        this.fullname = "michol";
+
+        const obj = {
+          fullname: "홍길동",
+          balance: 500,
+          sayHello: () => {
+            //:function을 없애도 똑같음
+            console.log("Hello!");
+            console.log(this.fullname); //일반함수니 홍길동이 나옴=> 화살표함수 쓰니 undefined나옴,>마이콜 설정> 일반함수는 자기 범위에서 찾는 반면 화살표함수는 상위 영역의 범위에서 찾기 때문에 마이콜 나옴
+          },
+        };
+
+        obj.sayHello(); //함수안에서 실행해줘야 함
+      }
+      outFunc();
+
+      //정리
+      //this
+      //일반함수의 this는 호출되는 위치에서 정의
+      //화살표 함수의 this는 선언된 함수범위에서 정의
+    </script>
+  </head>
+  <body></body>
+</html>

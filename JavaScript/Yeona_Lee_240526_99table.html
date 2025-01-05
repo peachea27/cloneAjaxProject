@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let tableTag = "<table><tr><td colspan='10';>구구단표</td></tr>";
+      tableTag +=
+        "<tr><td>0단*</td><td>1단*</td><td>2단</td><td>3단</td><td>4단</td><td>5단</td><td>6단</td><td>7단</td><td>8단</td><td>9단</td></tr>";
+
+      /*tableTag += "<tr>";
+      for (i = 0; i < 10; i++) {
+        tableTag += "<td>" + i + "단 </td>";
+      }
+      tableTag += "</tr>";*/
+
+      for (i = 1; i < 10; i++) {
+        tableTag += "<tr>";
+
+        for (j = 0; j < 10; j++) {
+          tableTag += `<td> ${j} X ${i} = ${j * i} </td>`;
+        }
+
+        tableTag += "</tr>";
+      }
+
+      tableTag += "</table>";
+      document.write(tableTag);
+    </script>
+    <style>
+      table {
+        width: 880px;
+        height: 400px;
+        text-align: center;
+        background-color: rgb(252, 200, 104);
+        padding-bottom: 10px;
+        margin: 30px 10px;
+      }
+      td {
+        background-color: rgb(242, 239, 239);
+      }
+      tr:first-child > td {
+        background-color: rgb(252, 200, 104);
+        color: rgb(34, 167, 34);
+        font-weight: bolder;
+      }
+      tr:nth-child(2) > td {
+        background-color: rgb(169, 248, 221);
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

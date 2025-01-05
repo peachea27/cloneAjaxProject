@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const intervalID = setInterval(
+        myCallback,
+        1000,
+        "Parameter 1",
+        "Parameter 2"
+      );
+      //mycallback함수의 괄호없이 이름만 쓴거 주목
+      //1000(밀리초 단위)
+      //콘솔 확인: 계속 찍히는 중
+
+      function myCallback(a, b) {
+        // 여기에 코드를 작성하세요
+        // 매개변수는 순전히 선택적입니다.
+        console.log(a);
+        console.log(b);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

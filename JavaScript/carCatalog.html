@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>$.each() 연습</title>
+    <script>
+      // ajax로 데이터를 받았다고 가정
+      // 자동차 카탈로그
+      // 가격, 제조사, 모델명, 색상, 설명, 이미지, 링크 등...
+      // 1) 생성자 함수 만들기
+      function Car(brandName, carName, color, description, carImg, link) {
+        this.brandName = brandName;
+        this.carName = carName;
+        this.color = color;
+        this.description = description;
+        this.carImg = carImg;
+        this.link = link;
+      }
+
+      // 2) 객체를 생성해서 배열에 담기
+      let cars = [];
+      cars.push(
+        new Car(
+          "Kia",
+          "k9",
+          "white",
+          "기아에서 2012년 5월 2일 출시한 후륜구동/후륜구동 기반 4륜구동 방식의 대형 세단이자, 기아의 플래그십 모델이다. ",
+          "https://i.namu.wiki/i/LlvE-GZsdkr13KsVf8HaX98qLiIx7OFT6ncMgCSHvFceIoamvcMbf5SlvwPDfKLfMlpALqsWvZvHn2pzuHjjbyCqBNFDNfjyLRpCF0SQI4X3FsHEDB97jhCwxzQVLhKwuaMyT-USgJoXC0-mvgHc8Q.webp",
+          "https://www.kia.com/kr/vehicles/k9/features"
+        )
+      );
+
+      cars.push(
+        new Car(
+          "Genesis",
+          "gv80",
+          "white",
+          "제네시스의 첫 번째 SUV 라인업이자 후륜구동 기반의 준대형 SUV. GV90이 출시되지 않은 제네시스 SUV 라인업 중 플래그십의 역할도 담당한다.",
+          "",
+          "https://www.volvocars.com/kr/cars/xc60/"
+        )
+      );
+
+      cars.push(
+        new Car(
+          "Volvo",
+          "xc60",
+          "black",
+          "스웨덴의 자동차 브랜드인 볼보에서 2008년부터 생산하는 중형 SUV이다.",
+          null,
+          null
+        )
+      );
+
+      //   console.log(cars);
+      //   console.log(typeof JSON.stringify(cars)); // string
+      //   console.log(JSON.parse(JSON.stringify(cars)));
+
+      let json = JSON.parse(JSON.stringify(cars));
+      console.log(json);
+      console.log(typeof json); // object
+
+      $(function () {
+        // 화면에 테이블 형식으로 출력을 해보자.
+        // (jquery, $.each() 이용)
+        // 단, 이미지가 없다면, noimage.png로 대체해서 출력한다.
+
+        let output = "<table class='table table-bordered'>";
+        output +=
+          "<thead><tr><th>브랜드명</th><th>차이름</th><th>색상</th><th>이미지</th><th>상세설명</th></tr></thead><tbody>";
+
+        $.each(json, function (i, item) {
+          console.log(item.carImg);
+          output += `<tr><td>${item.brandName}</td><td>${item.carName}</td><td>${item.color}</td>`;
+          if (item.carImg == "" || item.carImg == undefined) {
+            output += `<td><img src='images/no-photos.png'/></td>`;
+          } else {
+            // 이미지가 있는 경우
+            output += `<td><img src='${item.carImg}'/></td>`;
+          }
+
+          output += `<td>${item.description}</td></tr>`;
+        });
+
+        output += "</tbody></table>";
+        $("#tableCatalog").html(output);
+        $("table img").css("width", "100px");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2>차량소개</h2>
+      <div id="tableCatalog"></div>
+    </div>
+  </body>
+</html>

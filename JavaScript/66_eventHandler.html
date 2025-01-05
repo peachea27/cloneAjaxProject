@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function sayhello() {
+        alert("hello");
+      }
+
+      window.onload = function () {
+        let btn3 = document.getElementById("btn3");
+        console.log(btn3);
+        btn3.onclick = sayhello; //속성값에 함수를 부여해준다는 것이므로 함수()로 실행시키지 않는다//괄호 붙이니까 버튼과 상관없이 들어가자마자 실행되네..
+        btn3.onclick = function () {
+          alert("button3 clicked");
+        }; //이것도 넣으면 sayhello는 실행안되고 이것만 실행됨, 속성은 덮어쓰기되기 떄문
+
+        let btn4 = document.getElementById("btn4");
+        btn4.addEventListener("click", sayHi); //어떤 이벤트가 일어나는지 주시하고 있는 리스너
+
+        function sayHi() {
+          alert("hi");
+          document.getElementById("btn4").style.backgroundColor = "red";
+        } //이 함수를 위에 직접 적어줘도 됨
+
+        btn4.addEventListener("click", function () {
+          console.log("btn4 clicked");
+        });
+
+        let btn5 = document.getElementById("btn5");
+        btn5.addEventListener("dblclick", sayHi); //더블클릭
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="alert('btn1')">버튼1</button>
+    <button onclick="sayhello()">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <button id="btn4">버튼4</button>
+    <button id="btn5">버튼5</button>
+  </body>
+</html>

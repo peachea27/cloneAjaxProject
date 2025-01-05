@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 판별</title>
+    <script>
+      //NaN: Not a Number
+      //function isNaN(number: number): Boolean
+      //(1) isNaN()을 활용한다면...
+      console.log(isNaN(123)); //false 숫자니까
+      console.log(isNaN("123")); //false 숫자로 자동변환해서 숫자
+      console.log(!isNaN("123")); //앞에 !  true
+      console.log(isNaN("abc")); //true
+      console.log(isNaN("123abc")); //true
+
+      console.log(isNaN("")); //false, 숫자가 들어온 것과 같은 결과값이라 구분이 안됨.
+      console.log(isNaN(null)); //입력 안하고 취소 누르는 등 null 들어와도 구분없이 false
+
+      //isNaN은 사실상; 문자인가? 같은 건가...?
+
+      /*number.isNaN------------------*/
+      console.log(`--Number.isNan--`);
+      console.log(Number.isNaN(123)); //false 숫자니까
+      console.log(Number.isNaN("123")); //false
+      console.log(Number.isNaN(!"123")); //앞에 !
+      console.log(Number.isNaN("abc")); //false
+      console.log(Number.isNaN("123abc")); //false
+      console.log(Number.isNaN("")); //false,
+      console.log(Number.isNaN(null)); //false
+      console.log(Number.isNaN(NaN)); //true
+
+      //(2)isfinite()를 사용한다면.....
+      console.log(`--isfinite--`);
+      console.log(isFinite(123)); //true
+      console.log(isFinite("123")); //true
+      console.log(isFinite(!"123")); //true
+      console.log(isFinite("abc")); //false
+      console.log(isFinite("123abc")); //false
+      console.log(isFinite("")); //true
+      console.log(isFinite(null)); //true
+      console.log(Number.isFinite("")); //false
+      console.log(Number.isFinite(null)); //false
+      //isfinite는 1/3도 유한하다고 간주 0.33333......
+
+      let data = window.prompt("숫자를 입력하세요");
+      console.log(data);
+
+      let result = "";
+
+      if (isFinite(data) && data != "" && data != null) {
+        result = "숫자입니다.";
+      } else {
+        result = "숫자가 아닙니다";
+      }
+
+      document.write(`${data}은 ${result}`);
+    </script>
+  </head>
+  <body></body>
+</html>

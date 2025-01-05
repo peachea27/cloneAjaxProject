@@ -1,0 +1,25 @@
+import org.omg.CORBA.TypeCodePackage.BadKind;
+
+import cardDealer.ksy.Dealer;
+import cardDealer.ksy.Kind;
+import cardDealer.ksy.Player;
+
+public class PlayCardMain {
+
+	public static void main(String[] args) {
+	
+		Dealer dealer = new Dealer();
+		Player player1 = new Player("임요한");
+		Player player2= new Player("나");
+		
+		for( int i = 0; i < 5; i++) {
+			player1.getCardFromDealer(dealer);
+			player2.getCardFromDealer(dealer);
+		}
+		
+		player1.showPlayersCards();
+		player2.showPlayersCards();
+
+	}
+
+}

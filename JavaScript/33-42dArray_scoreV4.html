@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const STU_CNT = 5;
+      let scores = new Array(STU_CNT);
+      scores[0] = ["101010", "홍길동", 100, 95, 90];
+      scores[1] = ["123010", "홍ㅇ동", 77, 82, 90];
+      scores[2] = ["134010", "ㄹ길동", 77, 10, 90];
+      scores[3] = ["104510", "ㄴ길동", 77, 50, 90];
+      scores[4] = ["101410", "ㅎ길동", 47, 80, 90];
+
+      window.onload = function () {
+        console.log(scores);
+
+        for (let i = 0; i < scores.length; i++) {
+          scores[i][5] = scores[i][2] + scores[i][3] + scores[i][4];
+          scores[i][6] = Math.floor(scores[i][5] / 3);
+
+          if (scores[i][6] <= 100 && scores[i][6] >= 90) {
+            scores[i][7] = "A";
+          } else if (scores[i][6] < 90 && scores[i][6] >= 80) {
+            scores[i][7] = "B";
+          } else if (scores[i][6] < 80 && scores[i][6] >= 70) {
+            scores[i][7] = "C";
+          } else if (scores[i][6] < 70 && scores[i][6] >= 60) {
+            scores[i][7] = "D";
+          } else {
+            scores[i][7] = "F";
+          }
+        }
+        let output = "<table border=1>";
+        output +=
+          "<tr><td>학번</td><td>이름</td><td>영어</td><td>수학</td><td>국어</td><td>총점</td><td>평균</td><td>학점</td></tr>";
+
+        for (let i = 0; i < scores.length; i++) {
+          output += "<tr>";
+          for (let j = 0; j < scores[0].length; j++) {
+            output += `<td>${scores[i][j]}</td>`;
+          }
+          output += "</tr>";
+        }
+        output += "</table>";
+
+        //추가문제:평균을 기준으로 내림차순으로 정렬하세요
+
+        let table = `<table border=1>`;
+
+        for (let i = 0; i < scores.length - 1; i++) {
+          for (let j = i + 1; j < scores.length; j++) {
+            if (scores[i][6] < scores[j][6]) {
+              let tmp = scores[i]; //행이 통째로 움직여야 한다[i][6]은 금물
+              scores[i] = scores[j];
+              scores[j] = tmp;
+            }
+          }
+        }
+
+        table +=
+          "<tr><td>학번</td><td>이름</td><td>영어</td><td>수학</td><td>국어</td><td>총점</td><td>평균</td><td>학점</td></tr>";
+
+        for (let i = 0; i < scores.length; i++) {
+          table += "<tr>";
+          for (let j = 0; j < scores[0].length; j++) {
+            table += `<td>${scores[i][j]}</td>`;
+          }
+          table += "</tr>";
+        }
+        table += "</table>";
+
+        //추가문제
+        //등수를 매겨 보세요
+        //평균을 기준으로 등수를 매겨 보되, 평균이 같으면 순위는 같다.
+
+        //
+
+        document.getElementById("sortedTable").innerHTML = table;
+        document.getElementById("scoretable").innerHTML = output;
+      };
+
+      function orderScores() {
+        let order = ""; //elementS!
+        let radios = document.getElementsByName("order");
+        console.log(radios);
+        for (let radio of radios) {
+          console.log(radio.checked);
+          if (radio.checked == true) {
+            console.log(radio.value);
+            order = radio.value;
+          }
+        }
+
+        if (order == "desc") {
+          //평균을 기준으로 행 바꿔줌
+          for (let i = 0; i < scores.length - 1; i++) {
+            for (let j = i + 1; j < scores.length; j++) {
+              if (scores[i][6] < scores[j][6]) {
+                let tmp = scores[i];
+                scores[j] = tmp;
+              }
+            }
+          }
+
+          //순위 매기기
+          let rank = 1,
+            curRank = 1;
+          scores[0][8] = curRank;
+
+          for (let i = 1; i < scores.length; i++) {
+            //0번째는 무조건 1등이므로 제외하고 1부터
+            rank++;
+            // console.log(rank);
+            if (scores[i][6] != scores[i - 1][6]) {
+              curRank = rank;
+            }
+            scores[i][8] = curRank;
+            console.log(curRank);
+          }
+        } else {
+          //오름차순으로 순위 바꿔줌
+          for (let i = 0; i < scores.length - 1; i++) {
+            for (let j = i + 1; j < scores.length; j++) {
+              if (scores[i][6] < scores[j][6]) {
+                let tmp = scores[i];
+                scores[i] = scores[j];
+                scores[j] = tmp;
+              }
+            }
+          }
+          //5번부터 등수 부여
+          let rank1 = scores.length;
+          curRank1 = Number(scores.length);
+          scores[0][8] = curRank1;
+
+          for (let i = 1; i < scores.length; i++) {
+            rank1--;
+            if (scores[i][6] != scores[i - 1][6]) {
+              curRank1 = rank1;
+            }
+            scores[i][8] = curRank1;
+          }
+        }
+
+        let tableLast = "<table border=1>";
+
+        tableLast +=
+          "<br /><tr><td>학번</td><td>이름</td><td>영어</td><td>수학</td><td>국어</td><td>총점</td><td>평균</td><td>학점</td><td>등수</td></tr>";
+
+        for (let i = 0; i < scores.length; i++) {
+          tableLast += "<tr>";
+          for (let j = 0; j < scores[0].length; j++) {
+            tableLast += `<td>${scores[i][j]}</td>`;
+          }
+          tableLast += "</tr>";
+        }
+        tableLast += "</table>";
+
+        document.getElementById("rankTable").innerHTML = tableLast;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>정렬 전 테이블</h1>
+  </body>
+    <div id="scoretable"></div>
+    <h1>정렬 후 테이블</h1>
+    <div id="sortedTable"></div>
+    <h1>등수테이블</h1>
+    <div id="rankTable"></div>
+    <input type="radio" name="order" id="'desc" value="desc" checked />내림차순
+    정렬 <input type="radio" name="order" id="asc" value="asc" />오름차순 정렬
+    <button onclick="orderScores();">정렬</button>
+  </body>
+</html>

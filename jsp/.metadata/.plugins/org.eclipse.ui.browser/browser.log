@@ -1,0 +1,12 @@
+
+9월 29, 2024 17:50:27.424 NEW SESSION
+9월 29, 2024 17:50:27.424 [16352:7320:0929/175027.422:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 17:50:27.691 Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 29, 2024 17:50:30.539 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#58 is a dynamic-sized tensor).
+9월 29, 2024 17:50:48.137 [16352:7320:0929/175048.137:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 17:51:35.982 [16352:7320:0929/175135.982:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 17:53:19.518 [16352:7320:0929/175319.518:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 17:56:24.216 [16352:7320:0929/175624.216:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 18:03:46.649 [16352:7320:0929/180346.648:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+9월 29, 2024 19:16:10.12 [16352:16344:0929/191610.012:ERROR:device_event_log_impl.cc(201)] [19:16:10.012] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+9월 29, 2024 21:58:52.559 [16352:16344:0929/215852.558:ERROR:interface_endpoint_client.cc(725)] Message 0 rejected by interface blink.mojom.WidgetHost

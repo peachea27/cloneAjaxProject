@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //정규식(정규표현식): 특정 패턴의 문자열을 찾기 위한 표현방식
+
+      //생성자
+      //new RegExp('expression','option')
+      //new Reg('[a-z]','gi')
+      //리터럴 방식
+      // /[a-z]/gi
+
+      //생성자
+      let str =
+        "Debugging is removing bugs and programming is putting them in. Is it right?";
+      let regexp = new RegExp("is", ""); //옵션을 주지 않으면 가장 먼저 찾아지는 것을 반환/g는 글로벌/ global ignore//
+
+      console.log(str.match(regexp));
+
+      let regexp1 = new RegExp("is", "g");
+      console.log(str.match(regexp1));
+
+      let regexp2 = new RegExp("is", "gi"); //전체문장에서 찾되, 대소문자는 구분하지 않음.
+      console.log(str.match(regexp2));
+
+      //리터럴 방식
+      console.log(str.match(/is/gi));
+
+      console.log(regexp2.test(str)); //Boolean 반환
+      console.log(str.replace(regexp2, "isss"));
+
+      function checkEmail() {
+        let emailRegExp =
+          /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        let userEmail = document.getElementsByTagName("input")[0].value;
+        console.log(userEmail);
+        if (emailRegExp.test(userEmail)) {
+          alert("이메일 주소 형식이 맞습니다.");
+        } else {
+          alert("이메일 주소 형식이 아닙니다");
+        }
+      }
+
+      //
+    </script>
+  </head>
+  <body>
+    email : <input type="text" />
+
+    <button onclick="checkEmail()">확인</button>
+  </body>
+</html>

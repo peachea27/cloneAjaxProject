@@ -1,0 +1,12 @@
+import org.omg.CORBA.TypeCodePackage.BadKind;
+
+import cardDealer.ksy.Kind;
+
+public class PlayCardMain {
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

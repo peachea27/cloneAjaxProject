@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초간단 계산기</title>
+    <script>
+      function display(val) {
+        console.log(typeof val);
+        document.getElementById("result").innerHTML += val;
+      }
+
+      function calc() {
+        let exp = document.getElementById("result").innerHTML;
+        console.log(exp);
+        let result = eval(exp); //쓰지 않는걸 권장하는 함수지만 현재 가장 간단한 방법이므로
+        console.log(result);
+        document.getElementById("result").innerHTML = result;
+      }
+
+      function cls() {
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+    <style>
+      table {
+        width: 250;
+      }
+      input {
+        width: 100%;
+        font-size: 30px;
+      }
+
+      #result {
+        font-size: 30px;
+        background-color: cadetblue;
+        padding: 10px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td id="result" colspan="4"></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="7" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="8" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="9" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="/" onclick="display(this.value);" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="4" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="5" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="6" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="*" onclick="display(this.value);" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="3" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="2" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="1" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="-" onclick="display(this.value);" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="+" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="0" onclick="display(this.value);" />
+        </td>
+        <td>
+          <input type="button" value="=" onclick="calc();" />
+        </td>
+        <td>
+          <input type="button" value="C" onclick="cls();" />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

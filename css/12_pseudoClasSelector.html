@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(의사)가상 클래스 선택자PseudoClass Selector</title>
+    <style>
+      /* :link(방문하지 않은 링크에 스타일 적용)
+        :visited(방문한 링크에 스타일 적용)
+        :hover(특정 요소에 마우스 포인터를 올려 놓으면 스타일 적용)
+        :active(특정 요소를 클릭하는 순간 스타일 적용)
+        :focus(웹 요소에 초점이 맞춰졌을 때)*/
+
+      input:checked + label {
+        color: red;
+        font-weight: bold;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        transition: 1s;
+      }
+      .box:hover {
+        width: 300px;
+        background-color: blueviolet;
+      }
+
+      input:focus {
+        /*click*/
+        background-color: steelblue;
+      }
+
+      li:hover {
+        /*li에 마우스를 올리면*/
+        background-color: pink;
+      }
+
+      a:visited {
+        color: yellowgreen;
+      }
+      a:active {
+        /*누르는 순간*/
+        color: rgb(66, 7, 66);
+      }
+
+      a {
+        /*하이퍼링크의 밑줄 없애기*/
+        text-decoration: none;
+      }
+      .firstUl li:nth-child(odd) {
+        border: 1px dotted blue;
+      }
+      /*even=2n odd=2n+1*/
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div><input type="text" /></div>
+    <h1>web front 기술</h1>
+    <ul class="firstUl">
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          >html</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          >css</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          >javascript</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+          >jquery</a
+        >
+      </li>
+      <li><a href="https://ko.wikipedia.org/wiki/Ajax">ajax</a></li>
+    </ul>
+
+    <ul>
+      <li>
+        <input
+          type="radio"
+          id="fe"
+          name="gender"
+          checked
+        /><!--label위치는 상관없다-->
+        <label for="fe">여성</label>
+      </li>
+      <li>
+        <input type="radio" id="ma" name="gender" />
+        <label for="ma">남성</label>
+      </li>
+    </ul>
+  </body>
+</html>

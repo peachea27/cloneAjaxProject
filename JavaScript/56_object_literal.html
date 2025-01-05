@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성: literal</title>
+    <script>
+      let acc = {
+        owner: "홍길동",
+        accNum: "1111-023-04-987655",
+        balance: 500,
+        name: "직장인 비과세 예금",
+        bankName: "우리은행",
+
+        checkBalance: function () {
+          return this.balance;
+        },
+
+        deposit: function (money) {
+          this.balance += money;
+        },
+
+        withdraw: function (money) {
+          if (this.balance >= money) {
+            this.balance -= money;
+          } else {
+            alert("잔액이 부족합니다");
+          }
+        }, //이거 안찍어줘도 에러는 안나지만..
+      };
+
+      console.log(acc);
+    </script>
+  </head>
+  <body></body>
+</html>

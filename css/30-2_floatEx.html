@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .mbti {
+        padding: 30px;
+        border: 3px solid turquoise;
+        background-color: bisque;
+        max-width: 800px;
+      }
+      h1 {
+        text-align: center;
+        margin: 0 0 20px;
+      }
+      p {
+        background-color: rgba(202, 236, 236, 0.589);
+        padding: 15px 25px;
+        text-align: justify;
+        box-sizing: border-box; /*창을 늘려도 박스 위치 고정*/
+      }
+      .mbti-t {
+        float: left;
+        width: 43%;
+        border: 3px solid blueviolet;
+      }
+      .mbti-f {
+        float: right;
+        width: 43%;
+        border: 3px solid blueviolet;
+      }
+
+      .clear::after {
+        content: "";
+        display: block;
+        clear: both;
+      } /*다음에 오는 lorem구문이 float의 영향을 받지 않게*/
+    </style>
+  </head>
+  <body>
+    <div class="mbti clear">
+      <h1>MBTI T와F의 차이점</h1>
+      <p class="mbti-t">
+        T:객관적 사실 중시 원칙과 규범 중시 논리적이고 분석적 맞다 혹은 틀리다
+        식의 흑백사고 진실이 중요 사람에게 무관심한 사람으로 보일 수 있음
+      </p>
+      <p class="mbti-f">
+        F:상황적 특성 증시 정서적인 측면 중시 사실보다는 상황으로 판단 좋다
+        나쁘다 식의 흑백사고 진실 보다는 감정이 중요 진실을 말하기를 어려워함
+        동정심이 강함
+      </p>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+      praesentium ipsum maiores facere sint illum quia, provident aspernatur
+      optio quisquam rem? Doloribus, veniam recusandae? Quo vel corporis
+      excepturi eligendi inventore?
+    </p>
+  </body>
+</html>

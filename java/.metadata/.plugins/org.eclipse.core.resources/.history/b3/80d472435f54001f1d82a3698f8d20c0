@@ -1,0 +1,11 @@
+package com.lee.controller.service;
+
+public class SaveFriendService implements FriendManagementService{
+
+	@Override
+	public void doDo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

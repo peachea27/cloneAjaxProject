@@ -1,0 +1,10 @@
+package lee.ex2.preparedstmt;
+
+public class PreparedStatementMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

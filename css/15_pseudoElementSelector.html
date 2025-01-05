@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상의사 요소 선택자</title>
+    <style>
+      .box1::before {
+        content: "BEFORE!!";
+      }
+      .box2::after {
+        content: "AFTER!!";
+      }
+      p::first-line {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">div-tag</div>
+    <div class="box2">div-tag</div>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat hic et
+      distinctio dolores? Minus illum enim soluta atque, dolorem sint qui
+      excepturi non quisquam ut nisi iure sit laborum doloribus?<!--lorem-->
+    </p>
+  </body>
+</html>

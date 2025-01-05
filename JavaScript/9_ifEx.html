@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if문 연습</title>
+    <script>
+      //html, css, javascript 세 과목의 점수를 입력받아 평균을 구하고
+      //평균이 60점 이상이고, 과목당 40점 이상이어야 합격
+      //40점 미만 과목은 불합격
+
+      /* let hte = 0,
+        cse = 0,
+        jae = 0,
+        tot = 0,
+        avg = 0;*/ /*이건 아마 덧셈일 땐 안되는 듯? 현재까지 곱셈만 검증됨* 더하기는 문자를 결합하는 기능이 있기 때문에 그걸로 적용되고 곱셈은 문자에 사용하는 기능이 없으므로 오직숫자로 간주*/
+
+      hte = Number(window.prompt("html 점수"));
+      cse = Number(window.prompt("css 점수"));
+      jae = Number(window.prompt("javascript 점수"));
+
+      /* cse = window.prompt("css 점수");
+      hte = window.prompt("html 점수");
+      jae = window.prompt("javascript 점수");*/
+
+      console.log(hte, cse, jae);
+
+      tot = hte + cse + jae;
+      console.log(tot);
+
+      avg = tot / 3;
+
+      console.log(avg);
+
+      let porf = "";
+
+      if (hte < 40 || cse < 40 || jae < 40 || avg < 60) {
+        porf = "fail";
+      } else {
+        porf = "pass";
+      }
+
+      console.log(porf);
+
+      document.write(porf);
+
+      let output = `<table><tr><td>HTML</td><td>CSS</td><td>Java</td><td>평균</td><td>결과</td></tr>
+        <tr><td>${hte}</td><td>${cse}</td><td>${jae}</td><td>${avg}</td><td>${porf}</td></tr></table>`;
+      document.write(output);
+    </script>
+  </head>
+  <body></body>
+</html>

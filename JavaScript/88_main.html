@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET방식으로 데이터 주고 받기</title>
+    <script>
+      function send() {
+        // alert("!");
+        let base = document.getElementById("base").value;
+        //getelementbyid가 querySelector보다 더 구식 방식, 상황에 맞게 사용
+        let height = document.getElementById("height").value;
+        console.log(base, height);
+
+        location.href = `88-1_sub.html?base=${base}&height=${height}`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Main Page</h1>
+    <div>밑변: <input type="text" id="base" /></div>
+    <div>높이: <input type="text" id="height" /></div>
+    <div><button onclick="send()">전송</button></div>
+  </body>
+</html>

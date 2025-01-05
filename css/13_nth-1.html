@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nth</title>
+    <style>
+      .fruits span:first-child {
+        color: red;
+      }
+      .fruits div:first-child {
+        color: blue; /*첫째가 span이지 div아니라서 적용안됨*/
+      }
+      .fruits p:last-child {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fruits">
+      <span>apple</span>
+      <span>melon</span>
+      <div>orange</div>
+      <p>berry</p>
+    </div>
+  </body>
+</html>

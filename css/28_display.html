@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      li {
+        display: inline;
+      }
+      #big {
+        display: none; /*none은 보이지않게, block 등 나머지는 보임*/
+      }
+    </style>
+    <script>
+      function sizeup() {
+        /* console.log("sizeup()호출됨");*/
+        document.getElementById("big").style.display = "block";
+      }
+      function sizedown() {
+        /* alert("sizedown() 호출됨");*/
+        document.getElementById("big").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+      </ul>
+    </nav>
+
+    <div class="small">
+      <img
+        src="images/heart.png"
+        width="100px"
+        alt=""
+        onmouseover="sizeup();"
+        onmouseout="sizedown();"
+      />
+    </div>
+    <div id="big">
+      <img src="images/heart.png" alt="" />
+    </div>
+  </body>
+</html>

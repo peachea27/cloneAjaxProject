@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table만들기</title>
+    <style>
+      .container {
+        width: 100%;
+        height: 100px;
+        border: 5px dotted red;
+        overflow-x: hidden; /*가로방향으로 넘칠때 x, overflow/auto 말고 hidden해도됨*/
+      }
+
+      #score-table {
+        width: 960px;
+        border: 3px solid black;
+        border-collapse: collapse;
+      }
+
+      #score-table caption {
+        caption-side: bottom;
+        font-size: 25px;
+      }
+      #score-table th {
+        background-color: cornflowerblue;
+        font-size: 25px;
+        height: 40px;
+        position: sticky; /*해보니까 sticky랑 top같이 써야 효과가 있네, 여기서는*/
+        top: 0px;
+      }
+
+      #score-table td {
+        border: 1px solid darkgray;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table id="score-table">
+        <caption>
+          성적표
+        </caption>
+        <tr>
+          <th>학번</th>
+          <th>이름</th>
+          <th>국어</th>
+          <th>영어</th>
+          <th>수학</th>
+          <th>물리</th>
+          <th>화학</th>
+          <th>지리</th>
+          <th>국사</th>
+          <th>미술</th>
+          <th>음악</th>
+          <th>체육</th>
+          <th>총점</th>
+          <th>평균</th>
+          <th>등수</th>
+        </tr>
+        <tr>
+          <td>240517</td>
+          <td>홍길동</td>
+          <td>79</td>
+          <td>86</td>
+          <td>79</td>
+          <td>88</td>
+          <td>90</td>
+          <td>67</td>
+          <td>89</td>
+          <td>80</td>
+          <td>79</td>
+          <td>68</td>
+          <td>700</td>
+          <td>74</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>240517</td>
+          <td>홍길동</td>
+          <td>79</td>
+          <td>86</td>
+          <td>79</td>
+          <td>88</td>
+          <td>90</td>
+          <td>67</td>
+          <td>89</td>
+          <td>80</td>
+          <td>79</td>
+          <td>68</td>
+          <td>700</td>
+          <td>74</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>240517</td>
+          <td>홍길동</td>
+          <td>79</td>
+          <td>86</td>
+          <td>79</td>
+          <td>88</td>
+          <td>90</td>
+          <td>67</td>
+          <td>89</td>
+          <td>80</td>
+          <td>79</td>
+          <td>68</td>
+          <td>700</td>
+          <td>74</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>240517</td>
+          <td>홍길동</td>
+          <td>79</td>
+          <td>86</td>
+          <td>79</td>
+          <td>88</td>
+          <td>90</td>
+          <td>67</td>
+          <td>89</td>
+          <td>80</td>
+          <td>79</td>
+          <td>68</td>
+          <td>700</td>
+          <td>74</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>240517</td>
+          <td>홍길동</td>
+          <td>79</td>
+          <td>86</td>
+          <td>79</td>
+          <td>88</td>
+          <td>90</td>
+          <td>67</td>
+          <td>89</td>
+          <td>80</td>
+          <td>79</td>
+          <td>68</td>
+          <td>700</td>
+          <td>74</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let num = Number(window.prompt("숫자를 입력해주세요"));
+      let result = "";
+
+      switch (num % 2) {
+        case 0:
+          result = "짝수";
+          break;
+        default:
+          result = "홀수";
+          break;
+      }
+
+      /*switch (true) {
+        case num % 2 == 0:
+          result = "짝수";
+        default:
+          result = "홀수";
+      }*/
+
+      console.log(num, result);
+
+      document.getElementById(
+        "rresult"
+      ).innerHTML = `입력한 숫자: ${num}, ${result}`;
+    </script>
+  </head>
+  <body>
+    <div id="rresult"></div>
+  </body>
+</html>

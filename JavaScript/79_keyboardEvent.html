@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="inputTxt" placeholder="문자를 입력하세요..." />
+    <script>
+      let userInput = document.getElementById("inputTxt");
+      userInput.addEventListener("keydown", (e) => checkEvent("keyDown", e));
+      userInput.addEventListener("keypress", (e) => checkEvent("keyPress", e));
+      //문자값이 있는게 아닌 백스페이스 이스케이프 등은 키다운만 인식/키프레스는 값이 있는 키만 인식 ~ 실제로 화면에 출력되는 값들 중 어떤 값이 출력되었는가에 집중
+
+      function checkEvent(myevt, e) {
+        console.log(
+          `myevt: ${myevt}, keycode: ${e.keyCode}, length: ${e.target.value.length}, key: ${e.key}`
+        );
+      }
+    </script>
+  </body>
+</html>

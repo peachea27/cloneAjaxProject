@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div p {
+        background-color: blue;
+        color: white;
+      } /*div p {
+        background-color: pink;
+        color: white;
+      } 이런식으로 같은게 기술되면 나중에 오는게 적용됨*(핑크 우선) &클래스가 우선순위*/
+      .secondDiv p {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자손(하위) 선택자</h1>
+    <p>자손 선택자로 스타일을 꾸미면 어떻게 될까요?</p>
+    <div>
+      <!--alt shift 방향키-->
+      <p>div내부 p태그</p>
+      <p>div내부 p태그</p>
+      <p>div내부 p태그</p>
+    </div>
+
+    <p>div외부 p태그</p>
+    <div class="secondDiv">
+      <p>2rd div 내부 p태그</p>
+    </div>
+  </body>
+</html>

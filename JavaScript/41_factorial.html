@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수의 재귀호출 :팩토리얼, 피보나치</title>
+    <script>
+      //4!=4*3!=4*3*2!=4*3*2*1!
+
+      function factorial(n) {
+        console.log(n);
+        if (n == 1) {
+          return 1;
+        }
+        return n * factorial(n - 1);
+      }
+
+      //console.log(factorial(3));
+      //console.log(factorial(5));
+
+      function fibonacci(n) {
+        //F(n) = F(n-1) + F(n-2)
+        if (n <= 2) {
+          return 1;
+        } else {
+          return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+      }
+      //F(5)=F(4)+F(3)
+      //   =F(3)+F(2) +F(2) +F(1)
+      //   =F(2)+F(1)+F(2) +F(2) +F(1)
+      //   =5
+
+      for (let n = 1; n < 8; n++) {
+        console.log("n=", n, "FIbo :", fibonacci(n));
+      }
+
+      //   let num = 5;
+      //   let result = 0;
+      //   for (let i = 1; i < num; i++) {
+      //     // for( let j =i-2; j < num; j++){
+
+      //     do {
+      //       result = num * (num - 1);
+      //     } while (num > 1);
+      //     //  }
+      //   }
+      //   console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

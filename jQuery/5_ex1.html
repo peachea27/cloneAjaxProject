@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        function Car(brandName, carName, color, description, carImg, link) {
+          this.brandName = brandName;
+          this.carName = carName;
+          this.color = color;
+          this.description = description;
+          this.carImg = carImg;
+          this.link = link;
+        }
+
+        let cars = [];
+        cars.push(
+          new Car( //new는 메모리영역에 잡는 연산자?
+            "kia",
+            "k9",
+            "white",
+            "기아에서 2012년 출시한 후륜구동 모델이다.",
+            "https://cdn.wheel-size.com/thumbs/78/09/7809a78ef3b8951e7e065dd9bc6358d9.jpg"
+          )
+        );
+
+        cars.push(
+          new Car(
+            "Genesis",
+            "gv80",
+            "white",
+            "제네시스의 첫번째 SUV",
+            "dfd",
+            "https://www.hyundai.com/kr/ko/e/all-vehicles"
+          )
+        );
+
+        cars.push(
+          new Car(
+            "Volvo",
+            "xc",
+            "black",
+            "기아에서 출시",
+            "https://cas.volvocars.com/image/dynamic/MY24_2317/246/exterior-v3/8T/70700/RC2000/R18B/TC05/_/2G03/TP02/_/JT02/GR03/T102/TJ01/NP02/TM02/_/_/EV02/JB0C/T21B/LF01/_/VP07/_/FH01/T006/_/_/_/default.jpg?market=kr&client=gox-graph%7Cpdps&angle=4&w=1366&bg=descriptive-studio",
+            "https://www.hyundai.com/kr/ko/e/all-vehicles"
+          )
+        );
+
+        console.log(cars);
+        console.log(JSON.stringify(cars)); //string
+        console.log(JSON.parse(JSON.stringify(cars)));
+
+        let json = JSON.parse(JSON.stringify(cars));
+        console.log(json);
+        console.log(typeof json); //object
+
+        //화면에 테이블 형식으로 출력을 해보자.
+        //단, 이미지가 없다면, noimage.png로 대체해서 출력한다(비워둘순 없음)
+
+        let content = "<table border=1>";
+
+        $.each(json, function (i, e) {
+          console.log(e);
+          content += `<tr><td>${e.brandName}</td><td>${e.carName}</td><td ><img class="imgtd" src="${e.carImg}"></td><td>${e.color}</td><td>${e.description}</td><td>${e.link}</td></tr>`;
+        });
+        content += `</table>`;
+
+        $("#mydiv").append(content); //이걸 먼저 로딩해줘야 에러가 생기고 이벤트리스너 실행 가능
+
+        $("img").each(function () {
+          $(this).on("error", function (event) {
+            event.target.src =
+              "https://wiki.lordofthecraft.net/images/1/1e/noimg.png";
+          });
+        });
+
+        $(".imgtd").css("width", "300px", "height", "200px");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+  </body>
+</html>

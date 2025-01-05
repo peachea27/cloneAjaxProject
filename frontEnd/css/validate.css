@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background-color: aliceblue;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: #ddd;
+}
+
+fieldset {
+  padding: 10px;
+  background-color: #ddd;
+  margin-top: 20px;
+}
+
+legend {
+  background-color: gray;
+  padding: 5px 10px;
+  font-size: 11px;
+}
+
+button {
+  color: white;
+  padding: 14px 20px;
+  margin: 5px 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.signupBtn {
+  background-color: green;
+}
+
+.cancelBtn {
+  background-color: red;
+}
+
+.cancelBtn,
+.signupBtn {
+  float: left;
+  width: 50%;
+}
+
+.errMsg {
+  color: red;
+}

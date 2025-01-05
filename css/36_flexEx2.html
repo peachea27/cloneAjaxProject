@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/aebc8a6fa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>36_flexEx2</title>
+    <!--alt-tab으로 빠르게 전환하세요!-->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        /*reset.css검색, 참고*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1024px;
+      }
+      .icon-row {
+        /*아이콘 박스를 가로정렬 */
+        display: flex;
+        justify-content: space-between;
+      }
+      .icon {
+        width: 600px;
+        height: 600px;
+        background-color: navy;
+        color: darkgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon-row__icon {
+        /*아이콘과 텍스트를 세로정렬*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+      }
+      .icon-row__icon i {
+        font-size: 35px;
+      }
+      .icon-row__icon span {
+        font-size: 15px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="icon">
+      <div class="icon-row">
+        <div class="icon-row__icon">
+          <i class="fa-regular fa-calendar-days"></i><span>Calender</span>
+        </div>
+
+        <div class="icon-row__icon">
+          <i class="fa-solid fa-hard-drive"></i><span>Drive</span>
+        </div>
+
+        <div class="icon-row__icon">
+          <i class="fa-solid fa-heart"></i><span>Emoticons</span>
+        </div>
+
+        <div class="icon-row__icon">
+          <i class="fa-regular fa-comment"></i><span>Chats</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

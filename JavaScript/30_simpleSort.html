@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오름차순 정렬</title>
+    <script>
+      //1~100까지의 랜덤한 수 10개를 배열에 넣어두고, 오름차순으로 정렬하고
+      //정렬 전과 정렬 후의 배열을 각각 출력하세요.
+
+      let randNum = new Array(10);
+      let tableTag = "<table border=1><tr>";
+      let ascTableTag = "<table border=1><tr>";
+      let temp = 0;
+
+      for (let i = 0; i < 10; i++) {
+        randNum[i] = Math.floor(Math.random() * 100 + 1);
+      }
+
+      for (let i = 0; i < 10; i++) {
+        tableTag += `<td>${randNum[i]}</td>`;
+      }
+
+      tableTag += "</tr></table>";
+
+      document.write(tableTag + "<br />");
+
+      for (let i = 0; i < randNum.length; i++) {
+        for (let j = i + 1; j < randNum.length; j++) {
+          if (randNum[i] > randNum[j]) {
+            temp = randNum[i];
+            randNum[i] = randNum[j];
+            randNum[j] = temp;
+          }
+        }
+      }
+
+      for (let i = 0; i < 10; i++) {
+        ascTableTag += `<td>${randNum[i]}</td>`;
+      }
+
+      ascTableTag += "</tr></table>";
+
+      document.write(ascTableTag);
+    </script>
+  </head>
+  <body></body>
+</html>

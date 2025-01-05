@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflow</title>
+    <style>
+      div.overflow {
+        width: 200px;
+        height: 200px;
+        background-color: steelblue;
+        overflow: auto;
+        /*auto; 스크롤바 hidden;숨김 */
+      }
+
+      div.ellipse {
+        width: 200px;
+        height: 200px;
+        background-color: cornflowerblue;
+        overflow: hidden;
+        text-overflow: ellipsis; /*...*/
+        white-space: pre; /*앞에 공백*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overflow">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias assumenda
+      nisi cupiditate sint pariatur ullam facilis odio, eveniet totam doloribus
+      non enim repudiandae nihil, accusamus expedita fugiat earum. Incidunt,
+      porro! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+      quisquam modi, error vitae incidunt blanditiis quae possimus illo nisi,
+      aut magnam soluta ipsa reiciendis fuga nemo, perspiciatis enim natus
+      voluptas?
+    </div>
+    <div class="ellipse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores facilis
+      voluptatibus corporis id corrupti aliquam expedita officia! Officiis illum
+      similique vel explicabo beatae laborum, qui, non voluptatem eius aperiam
+      id.
+    </div>
+  </body>
+</html>

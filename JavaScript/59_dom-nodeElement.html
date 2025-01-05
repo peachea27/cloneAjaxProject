@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        //Node: HTML요소, 텍스트, 주석 등 모든 것을 의미
+        //Element (요소): HTML요소(태그)를 의미
+        const parent = document.querySelector(".parent");
+        console.log(parent); //null: .parent를 못읽어온다 window.onload필요
+        console.log(parent.children); //요소를 반환
+        console.log(parent.childNodes); //노드 리스트를 반환
+      };
+    </script>
+  </head>
+  <body>
+    <div class="parent">
+      <!--주석-->
+      <div class="child">content-1</div>
+      <div class="child">content-2</div>
+    </div>
+  </body>
+</html>

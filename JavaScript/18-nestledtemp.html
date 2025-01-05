@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stars</title>
+    <!--0을 제로베이스로 연습하는게 좋음, 인덱스가 0부터 시작하기 때문-->
+    <script>
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 4; j++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+      document.write("직각 삼각형 별<br />");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+
+      document.write("역직각삼각형의 별<br />");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+
+      for (let i = 5; i > 0; i--) {
+        for (let j = 0; j < i; j++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+      document.write("피라미드<br />");
+      for (let i = 0; 5 > i; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp");
+        }
+        for (let s = 0; i >= s; s++) {
+          document.write("*");
+        }
+        for (let t = 0; i > t; t++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+      document.write("역피라미드 별찍기<br />");
+
+      for (let i = 0; 5 > i; i++) {
+        for (let j = 0; i > j; j++) {
+          document.write("&nbsp");
+        }
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+
+        for (let j = 4; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      document.write("<hr />");
+      document.write("마름모꼴 별찍기<br />");
+
+      for (let i = 0; 5 > i; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("&nbsp");
+        }
+        for (let j = 0; i >= j; j++) {
+          document.write("*");
+        }
+        for (let j = 0; i > j; j++) {
+          document.write("*");
+        }
+
+        document.write("<br />");
+      }
+
+      for (let i = 0; 4 > i; i++) {
+        for (let j = -1; i >= j; j++) {
+          document.write("&nbsp");
+        }
+        for (let j = 4; j > i; j--) {
+          document.write("*");
+        }
+        for (let j = 3; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

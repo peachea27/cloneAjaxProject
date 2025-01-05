@@ -1,0 +1,22 @@
+package lee.famaccount;
+
+public class FamAccMain {
+
+	public static void main(String[] args) {
+		
+		Family 아빠 = new Family("아빠");
+		Family 엄마 = new Family("엄마");
+		Family 나 = new Family("나");
+		
+		Thread fth = new Thread(아빠);
+		Thread mth = new Thread(엄마);
+		Thread nth = new Thread(나);
+		
+		fth.start();
+		mth.start();
+		nth.start();
+		
+		
+	}
+
+}

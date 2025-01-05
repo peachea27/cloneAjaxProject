@@ -1,0 +1,5 @@
+package lee.famaccount;
+
+public class Account {
+	private int balance = 10000;
+}

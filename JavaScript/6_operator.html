@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자의 종류</title>
+    <script>
+      //산술 연산자(+, -,*, /, %(나머지 연산자),**(제곱))
+      let a = 3,
+        b = 5;
+      console.log(b % a); //2출력, 몫은 1 나머지는 2
+      console.log(a * b - a); //
+      console.log(b ** a); //5^3 =5*5*5 =125
+      console.log(b ** (a ** 2)); //save하면 괄호가 자동생성(우결합성)
+      console.log((b ** a) ** 2); //위와는 값이 달라짐
+
+      //증감 연산자
+      //연산자의 위치에 따라 우선순위가 달라진다.
+      //전치 연산: 선증감 후대입 (연산자가 변수 앞에 있을 떄)
+      //후치 연산: 선대입 후증감
+      console.log(a, b); //a=3,b=5
+      console.log(a++); //3
+      console.log(a); //4
+
+      console.log(++a); //5
+      console.log(a); //5
+
+      console.log(b++ * ++a); //30
+
+      console.log(a, b); //6,6
+
+      //관계 연산자: 연산의 결과가 true 또는 false가 나오게 하는 연산
+      // > (크다), < (작다), >= (크거나 같다), <= (작거나 같다)
+      // == (같다), != (같지 않다)
+      console.log(a > b); // 6>6 =false
+      console.log(a == b); //true
+      /*3=='3'? true로 나옴, 스트링의 값까지 읽어서 비교하는 것. 단, 3==='3'? false. "==="은 완전히 같은가(타입까지)?-----------------------------------*/
+      console.log(3 == "3");
+      console.log(3 === "3");
+      /*-----------------------------------------------*/
+      console.log(a != b); //false
+      console.log(++a == b); //false
+      console.log(b % 2 == 0); //true
+
+      //논리 연산자: 관계 연산자와 관계 연산자의 조합을 하는 연산
+      // and (&&) : true && true ->true, true && false ->false:수식이 모두 참일 때만 결과가 참
+      //or (||): true || true , true || false -> true, false || false ->false 수식이 하나라도 참인 값이 있으면 결과가 참, 수식이 모두 거짓이면 결과는 거짓
+      console.log(a, b); //7,6
+      console.log(a > b && b != 3); //true
+      console.log(a == 6 && b == 6); //false
+      console.log(a == 6 && b == 6 && b % 2 == 0); //false 틀릴만한 걸 가장앞에 적어서 분별 편하게..
+      console.log(a > 2 || b == 6); //true
+      console.log(a < 0 || b > 0); //true
+      console.log(a > 0 || b > 0); // true
+      console.log(a < 0 || b < 0); //false
+
+      // !:not
+      // !true ->false, !false-.true
+      console.log(!a); //!7 /false
+      console.log(!0); //!0 /true
+      console.log(!1); // false
+      console.log(!20); //false
+
+      console.log(!a > b); //false
+      console.log(!a < b); //true
+      console.log(!(a > b)); //!true->false
+      console.log(!!a > b); //!false > b /  ->false
+
+      console.log("A" > "a"); //아스키코드로 65 > 97 ->false
+
+      //우선순위: 증감(후위) >논리연산자(NOT) >산술연산자 > 관계연산자 > 논리 (&& -> ||) >대입연산자 /:증not산관논
+
+      //대입연산자
+      let result = 0;
+      result += 3; //result = result+3
+      console.log(result);
+      result *= 2; //result= result*2
+      console.log(result);
+      result /= 2;
+      console.log(result);
+      result %= 2;
+      console.log(result);
+
+      //=========================================================================
+      //위의 연산자들은 꼭 알아두기!!!
+      //비트 연산자 : 2진수로 바꾸어 비트 단위로 연산한다.
+      //비트 and & : 모두 1일 때만 1, 나머지는 0
+      //비트 or |:
+      a = 5;
+      b = 3;
+      //a=101 = 1*(2^2) +0*(2^1) +1*(2^0)
+      //b=011 = 1 * (2^1) +1* (2^0)
+      //33 -> 100001
+      //64 32 16 8 4 2 1
+      //   1  0  0 0 0 1 때려맞춰서 넣기
+      //1 0 1
+      //0 1 1
+      //---&------------------------
+      //0 0 1 ->하나라도 false면 false니까
+      console.log("비트연산자 a & b ;", a & b); //1
+      //1 0 1
+      //0 1 1
+      //--|-------------------
+      //1 1 1
+      console.log("비트연산자 a | b ;", a | b); //7
+
+      //xor (exclusive or : 배타or) :서로 다른 값이면 1, 같은 값이면 0
+      //1 0 1
+      //0 1 1
+      //----^---------
+      //1 1 0 => 6
+      console.log("비트연산자 a ^ b ;", a ^ b); //6
+
+      //~(비트 not)
+      console.log("비트연산자 ~a :", ~a); //-6
+      //0 0 0 0 0 1 0 1
+      //-------~--------
+      //1 1 1 1 1 0 1 0
+
+      //쉬프트 연산자 (자리이동 연산자)
+      //왼쪽 쉬프트 연산자 : <<
+      // a << 2           : a*2^2=20이란 공식이 있다
+      //0 0 1 0 1 << 2
+      //1 0 1 0 0 => 20
+
+      console.log(",쉬프트연산자 a <<2:", a << 2); //20
+
+      // a >> 2      : a*2^(-2)= a*1/4 =5/4
+      // 0 1 0 1 >> 2
+      // 0 0 0 1  => 1
+      console.log(",쉬프트연산자 a >> 2:", a >> 2); //1
+    </script>
+  </head>
+  <body></body>
+</html>

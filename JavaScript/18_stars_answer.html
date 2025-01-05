@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.write("직각삼각형<br />");
+      for (let i = 0; i < 5; i++) {
+        //01234
+        for (let j = 0; j < i + 1; j++) {
+          //i=0,j=0
+          //i=1, j=0,1
+          //i=2,j=0,1,2
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+      document.write("<br />역직각삼각형<br />");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5 - i; j++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+      document.write("<br />피라미드<br />");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp");
+        }
+        for (let k = 0; k < 2 * i + 1; k++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+      document.write("<br />마름모<br />");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp");
+        }
+        for (let k = 0; k < 2 * i + 1; k++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+      for (let i = 1; i < 5; i++) {
+        for (let j = 0; j < i; j++) {
+          document.write("&nbsp");
+        }
+        for (let k = 0; k < 9 - 2 * i; k++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      //★큰 별을 쓰면 &nbsp&nbsp&nbsp 세 개씩
+    </script>
+  </head>
+  <body></body>
+</html>

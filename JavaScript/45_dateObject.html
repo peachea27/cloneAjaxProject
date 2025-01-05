@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let date = new Date(); //생성자를 이용해서 날짜 객체 생성
+      document.write(`현재 : ${date}<br>`);
+      console.log(typeof date); //object
+      document.write(`현재 : ${date.toDateString()}<br>`); //시간 없이 날짜만 출력
+      document.write(`현지 : ${date.toLocaleDateString()}<br>`); //우리나라 현지에 맞춰서 출력
+      document.write(`현지 시간 : ${date.toLocaleTimeString()}<br>`); //우리나라 현지 '시간'에 맞춰서 출력
+      document.write(`현지 날짜와 시간 : ${date.toLocaleString()}<br>`); //우리나라 현지 날짜와 시간에 맞춰서 출력
+
+      let pastDate = new Date(2004, 1, 1, 1, 11, 11); //1을 넣으면 feb이 나옴, 1월은 0// Sun Feb 01 2004 01:11:11
+      console.log(pastDate);
+      let pastDate1 = new Date(2004, 6, 1); //Thu Jul 01 2004 00:00:00 GMT+0900 (한국 표준시)
+      console.log(pastDate1);
+
+      let pastDate2 = new Date("Mon Jun 03 2024 16:42:22 GMT+0900(한국표준시)");
+      console.log(pastDate2);
+
+      //getter
+      document.write(`현재 연도 : ${date.getFullYear()}<br />`); //2024
+      document.write(`현재 월: ${date.getMonth()}월 <br/>`); //5월(6월)-> 1월 =0부터 시작
+      document.write(`현재 일: ${date.getDate()} <br/>`); //날짜
+      document.write(`현재 일: ${date.getDay()} <br/>`); // 1 (요일)/ 0은 일요일을 나타냅니다.
+
+      //요일 배열을 만들어 인덱스 번호로 사용, 오늘의 요일을 출력
+      let yoil = [
+        "일요일",
+        "월요일",
+        "화요일",
+        "수요일",
+        "목요일",
+        "금요일",
+        "토요일",
+      ];
+      document.write(`현재 요일: ${yoil[date.getDay()]} <br/>`);
+
+      //setter//재할당, 셋팅해주고 싶을 떄
+      let date2 = new Date();
+      document.write(`현재 : ${date2} <br>`);
+      date2.setDate(1);
+      document.write(`현재 setDate(1) : ${date2} <br>`);
+      date2.setHours(1, 10, 11);
+      document.write(`현재 setHours(1,10,11) : ${date2} <br>`);
+
+      //getTime()
+      //1970년 1월 1일 00:00:00 UTC와 주어진 날짜 사이의 경과 시간(밀리 초)을 나타내는 숫자
+      document.write(`현재 getTime() : ${date.getTime()}<br>`); // 1717402071712 타임스탬프 값을 출력
+      console.log(typeof date.getTime()); //number
+
+      //
+      let myBirthday = new Date(1993, 10, 12); //이래야 9월 -1 => 8
+      let today = new Date(2024, 5, 3);
+      console.log(myBirthday, today);
+      console.log(today.getTime(), myBirthday.getTime());
+      console.log(today.getTime() - myBirthday.getTime()); //964310400000
+      console.log(
+        (today.getTime() - myBirthday.getTime()) / (1000 * 60 * 60 * 24)
+      ); //11161일
+      console.log(
+        (today.getTime() - myBirthday.getTime()) / (1000 * 60 * 60 * 24 * 30) //372개월
+      );
+
+      //시계 출력
+      setInterval(function () {
+        let now = new Date();
+        document.getElementById("clock").innerHTML = now;
+      }, 1000); //밀리세컨, 가장 뒤에 읽기 때문에 1초씩 계속 늦음// 원래는 1초 늦게 해주지 않으면 시간이 바뀌지 않음
+    </script>
+  </head>
+  <body>
+    <div id="clock"></div>
+  </body>
+</html>

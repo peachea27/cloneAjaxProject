@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex03:배치방향과 줄바꿈을 한꺼번에 지정하는 flex-flow</title>
+    <style>
+      .container {
+        display: flex; /*가로정렬, 부모요소에 설정해준다.*/
+        width: 700px;
+        background-color: darkgray;
+        margin-bottom: 30px;
+      }
+
+      .box {
+        width: 80px;
+        background-color: darkcyan;
+        margin: 5px;
+        padding: 5px 45px;
+        text-align: center;
+      }
+      #container1 {
+        flex-flow: row nowrap;
+      }
+      #container2 {
+        flex-flow: row wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container1">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+    <div class="container" id="container2">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+    </div>
+  </body>
+</html>

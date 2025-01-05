@@ -1,0 +1,21 @@
+INDEX VERSION 1.131
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1591368824.index
+\Test\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\776890972.index
+\JSPBasic\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3440984194.index
+\AjaxJSP\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2211683274.index
+\MiniProject\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4158360605.index
+\project\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1847363642.index
+\MiniProject\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3675326954.index
+\JSPBasic\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\942051708.index
+\MiniProject\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\846417585.index
+\JSPBasic\src\main\java
+D:\lecture\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3910429449.index
+\MiniProject\src\main\java

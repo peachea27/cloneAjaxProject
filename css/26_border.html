@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        border-bottom: 3px solid royalblue;
+        border-bottom: 3px dotted royalblue;
+        border-bottom: 3px dashed royalblue;
+      }
+      p {
+        padding: 10px;
+        border: 3px dotted greenyellow;
+        border-right: 3px solid green;
+        border-left: 3px solid darkgreen;
+        border-radius: 10px 20px 30px 50px;
+      }
+      .img {
+        /*width: 300px; round에서 했으니까 생략*/
+      }
+      #round {
+        border-radius: 50%;
+        /*border-radius: 300px;*/
+        width: 200px;
+        height: 200px;
+      }
+      .radius {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        border: 1px solid blue;
+      }
+      .rad1 {
+        border-radius: 100px 100px 0 0;
+      }
+      .rad2 {
+        border-radius: 100px;
+      }
+      .rad3 {
+        border-radius: 100px 0 0 0;
+      }
+      .rad4 {
+        border-radius: 40px 15px 40px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Border</h1>
+    <p>
+      In CSS, the term "box model" is used when talking about design and layout.
+      The CSS box model is essentially a box that wraps around every HTML
+      element. It consists of: content, padding, borders and margins. The image
+      below illustrates the box model:
+    </p>
+    <div class="img">
+      <img id="round" src="../images/images.jpg" alt="" />
+    </div>
+    <div class="radius rad1">radius1</div>
+    <div class="radius rad2">radius2</div>
+    <div class="radius rad3">radius3</div>
+    <div class="radius rad4">radius4</div>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--축약형 찾아보기 p.class이름/ctrl+sp 선택지 펼치기-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .greeting {
+        text-transform: capitalize;
+        letter-spacing: normal
+          /*normal이라서 티가 안나지만 -1px 등 넣을 수 있음*/;
+        text-decoration: underline;
+      }
+      .text-left {
+        text-align: left;
+        letter-spacing: 5px;
+        text-decoration: overline;
+      }
+      .text-right {
+        text-align: right;
+        word-spacing: 30px;
+        line-height: 2em; /*em은 상대적인 단위로, 기본 주어진 값이 기준*/
+        text-decoration: line-through;
+      }
+      .text-center {
+        text-align: center;
+        font-variant: small-caps;
+      }
+      .text-justify {
+        text-align: justify; /*양쪽정렬*/
+        text-indent: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="greeting">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius tempore
+      earum, architecto minima optio unde error, cum, provident assumenda
+      perferendis fugit similique maiores harum aliquam. Totam eaque quasi unde
+      quo!
+    </div>
+    <p class="text-left">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas iste
+      dolorem quod nihil nesciunt soluta corrupti laborum accusamus cumque ea
+      maiores nisi saepe aliquid, rem reprehenderit architecto delectus ipsum.
+    </p>
+    <p class="text-right">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+      deleniti doloremque. Consequatur beatae voluptates aperiam quo vel
+      temporibus corrupti aspernatur, eum illum aut nihil cumque facere
+      explicabo dolorum libero cupiditate?
+    </p>
+    <p class="text-center">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum similique
+      ad, est deleniti alias eligendi quos hic reprehenderit corrupti minima
+      quod ullam aliquid architecto! Suscipit in pariatur eius omnis
+      accusantium.
+    </p>
+    <p class="text-justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, cum
+      obcaecati? Nostrum laborum quisquam error odit facere doloribus corporis
+      eum alias aspernatur cumque, suscipit vero iure. Obcaecati consequatur sed
+      explicabo.
+    </p>
+    <p class="text-justfy">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dicta
+      iste exercitationem, itaque nemo esse quae voluptatem vel dolore facere
+      possimus debitis neque reprehenderit similique adipisci cupiditate ab
+      error laborum!
+    </p>
+  </body>
+</html>

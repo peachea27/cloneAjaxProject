@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/account.js"></script>
+    <title>배열에 객체를 담아 관리</title>
+    <script>
+      let acc1 = new Account("홍길동", "1111-023-04-56789", 500);
+      console.log(acc1);
+
+      let acc2 = new Account("둘리", "1111-023-04-56777", 1000);
+      console.log(acc2);
+
+      let clients = [];
+      //let clients = new Array(1000);
+      clients.push(acc1); //push로 넣으면 차곡차곡 들어감
+      clients.push(acc2);
+      console.log(clients);
+
+      // //고객의 명단을 list로 출력하세요(이름, 계좌번호, 잔액)
+
+      // let listTag = "<ul>";
+
+      // for (let i = 0; i < clients.length; i++) {
+      //   listTag +=
+      //     "<li>" +
+      //     "이름 : " +
+      //     clients[i].owner +
+      //     "<br>계좌번호 : " +
+      //     clients[i].accNum +
+      //     "<br>잔액 : " +
+      //     clients[i].balance +
+      //     "</li>";
+      // }
+
+      // listTag += "</ul>";
+      // document.write(listTag);
+
+      // let output = "<ul>";
+
+      // for (let client of clients) {
+      //   console.log(client);
+      //   output += `<li>예금주 : ${client.owner}, 계좌번호: ${client.accNum}, 잔액: ${client.balance}</li>`;
+      // }
+      // output += "</ul>";
+      // document.write(output);
+
+      // let listTag2 = "";
+
+      // for (let i = 0; i < clients.length; i++) {
+      //   listTag2 += `<ul><li>예금주 : ${clients[i].owner}</li>`;
+      //   listTag2 += `<ul><li>계좌번호 : ${clients[i].accNum}</li><li>잔액 : ${clients[i].balance}</li></ul></ul>`;
+      // }
+
+      // document.write(listTag2);
+
+      //JSON
+      document.write(JSON.stringify(clients));
+      let jsonStr = JSON.stringify(clients);
+      console.log(typeof jsonStr);
+
+      let jsonObj = JSON.parse(jsonStr);
+      console.log(typeof jsonObj);
+      console.log(jsonObj);
+    </script>
+  </head>
+  <body></body>
+</html>

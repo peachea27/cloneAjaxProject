@@ -1,0 +1,11 @@
+package lee.famaccount;
+
+public class Family implements Runnable{
+	private String name;
+	private Account acc = new Account();
+	/* 가족이 가족통장을 가지고 있다 */
+	
+	Family (String name){
+		this.name = name;
+	}
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>전역변수global vs 지역변수local</title>
+    <script>
+      let data = 3; //전역 변수
+      data = 5;
+
+      if (data > 0) {
+        console.log("data", data);
+
+        let tmp = 7; //지역 변수
+        console.log("tmp", tmp);
+      }
+      console.log("tmp 중괄호 밖", tmp); //에러 :tmp is not defined;
+      console.log("data 19번 라인", data);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,19 @@
+1724041817409	Move 'taglibs-standard-spec-1.2.5.jar' to 'lib'
+1724044272137	Delete elements
+1724044277004	Delete element
+1724050514238	Extract method 'toJsonSimple'
+1724051854024	Delete element
+1724053949896	Delete element
+1724053962598	Delete element
+1724054813887	Delete element
+1724118127002	Rename type 'test'
+1724124387874	Delete element
+1724124400402	Delete element
+1724136669200	Delete element
+1724137150901	Delete element
+1724153424887	Delete element
+1724153837433	Delete element
+1724206082346	Rename package 'com.ajaxjsp.vo'
+1724287994861	Rename type 'SaveEmployeeServlet'
+1724288127601	Rename type 'GetEmployeeServlet'
+1724288170255	Rename type 'ModifyEmployeeServlet'

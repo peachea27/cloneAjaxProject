@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/aebc8a6fa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let list = document.getElementById("list");
+        console.log(list);
+
+        list.onclick = function (e) {
+          console.log(e);
+          let target = e.target;
+          console.log(target); //내가 클릭한 타겟이 찍힘
+          target.classList.toggle("text-red"); //찜하면 텅빈하트가 빨간색이 되도록/fontawesome
+        };
+
+        let button = document.getElementById("btn");
+
+        button.onclick = function (e) {
+          console.log(e.target);
+          e.target.classList.toggle("fa-solid");
+        }; //fontawesome에서 다 채운아이콘 이름이 fa-solid
+
+        // button.addEventListener('click',function (e){
+        //     let target=e.target;
+        //     target.classList.toggle
+        // })
+      };
+    </script>
+    <style>
+      .text-red {
+        color: red;
+      }
+
+      .fa-solid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="list">
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+    </ul>
+    <button><i id="btn" class="fa-regular fa-heart"></i></button>
+  </body>
+</html>

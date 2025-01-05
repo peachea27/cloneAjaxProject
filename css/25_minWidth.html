@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--min-width는 계속 줄어들지 않고 400에서 멈춤, 반면 늘어나는건 계속 늘어남-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 400px;
+        border: 2px solid lightcoral;
+      }
+      .box2 {
+        min-width: 400px;
+        border: 2px solid royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>min-width 속성</h1>
+    <div class="box1">이 div요소의 너비는 400px</div>
+    <div class="box2">이 div요소의 너비는 min-width 400px</div>
+  </body>
+</html>

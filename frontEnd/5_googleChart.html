@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>성적표 차트 그리기</title>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      //두명 학생의 이름, 국, 영, 수 데이터를 입력받아서
+      //결과 버튼을 클릭하면
+      //총점, 평균을 input출력하고
+      //콤보 차트를 출력한다
+      //전역변수 사용을 자제하는게 좋음: 계속 값이 변하지 않는지 섹션마다 확인해야 하는 어려움이 있다
+      //   let scores = new Array();
+      //   scores[0] = ["이름", "국어", "영어", "수학", "총점", "평균"];
+
+      //   console.log(scores);
+
+      $(function () {
+        $("#btnResult").click(function () {
+          //   alert("!");
+          let score2dArr = inputData();
+          drawChart(score2dArr);
+        });
+      });
+
+      function drawChart(scores) {
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+          //alert("!");
+          var data = google.visualization.arrayToDataTable(scores);
+          console.log(scores[0]);
+
+          var options = {
+            title: "성적표V7",
+            vAxis: { title: "점수" },
+            hAxis: { title: "이름" },
+            seriesType: "bars",
+            series: { 4: { type: "line" } }, //평균은4
+          };
+
+          var chart = new google.visualization.ComboChart(
+            document.getElementById("chart_div")
+          );
+          chart.draw(data, options);
+        }
+      }
+
+      function inputData() {
+        // console.log($(".student"));
+        $(".student").each(function (i, student) {
+          let stuName = $(student).children().find(".stuName").val();
+          console.log(stuName);
+          let kor = Number($(student).children().find(".kor").val());
+          let eng = Number($(student).children().find(".eng").val());
+          let math = Number($(student).children().find(".math").val());
+          console.log(typeof kor);
+
+          let tot = kor + eng + math;
+          let avg = Number((tot / 3).toFixed(2));
+          console.log(tot, avg);
+          scores.push([stuName, kor, eng, math, tot, avg]);
+
+          $(student).children().find(".tot").val(tot);
+          $(student).children().find(".avg").val(tot);
+        });
+      }
+
+      const STUDENT_CNT = 2;
+
+      function inputScore() {
+        for (let i = 0; i < STUDENT_CNT; i++) {
+          let name = document.getElementsByClassName("stuName")[i].value;
+          let kor = parseInt(document.getElementsByClassName("kor")[i].value);
+          let eng = parseInt(document.getElementsByClassName("eng")[i].value);
+          let math = parseInt(document.getElementsByClassName("math")[i].value);
+          //
+          scores.push(new Student(name, kor, eng, math));
+          drawVisualization();
+        }
+      }
+
+      function Student(name, kor, eng, math) {
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+        this.tot = this.kor + this.eng + this.math;
+        this.avg = this.tot / 3;
+        console.log(typeof this.kor);
+      }
+
+      // Some raw data (not necessarily accurate)
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>국어</th>
+          <th>영어</th>
+          <th>수학</th>
+          <th>총점</th>
+          <th>평균</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="student">
+          <td><input type="text" class="stuName" value="둘리" /></td>
+          <td><input type="text" class="kor" value="88" /></td>
+          <td><input type="text" class="eng" value="68" /></td>
+          <td><input type="text" class="math" value="78" /></td>
+          <td><input type="text" class="tot" /></td>
+          <td><input type="text" class="avg" /></td>
+        </tr>
+        <tr class="student">
+          <td><input type="text" class="stuName" value="희동" /></td>
+          <td><input type="text" class="kor" value="88" /></td>
+          <td><input type="text" class="eng" value="68" /></td>
+          <td><input type="text" class="math" value="78" /></td>
+          <td><input type="text" class="tot" /></td>
+          <td><input type="text" class="avg" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="stuName" value="도우너" /></td>
+          <td><input type="text" class="kor" value="88" /></td>
+          <td><input type="text" class="eng" value="68" /></td>
+          <td><input type="text" class="math" value="78" /></td>
+          <td><input type="text" class="tot" /></td>
+          <td><input type="text" class="avg" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="stuName" value="또치" /></td>
+          <td><input type="text" class="kor" value="88" /></td>
+          <td><input type="text" class="eng" value="68" /></td>
+          <td><input type="text" class="math" value="78" /></td>
+          <td><input type="text" class="tot" /></td>
+          <td><input type="text" class="avg" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="stuName" value="마이클" /></td>
+          <td><input type="text" class="kor" value="88" /></td>
+          <td><input type="text" class="eng" value="68" /></td>
+          <td><input type="text" class="math" value="78" /></td>
+          <td><input type="text" class="tot" /></td>
+          <td><input type="text" class="avg" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <input type="button" value="결과" id="btnResult" />
+    </div>
+    <div id="chart_div"></div>
+  </body>
+</html>

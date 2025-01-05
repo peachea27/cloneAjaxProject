@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화살표 함수</title>
+    <script>
+      //1)함수 선언식
+      function greeting() {
+        return "Hello";
+      }
+
+      console.log(greeting()); //함수는 호이스팅, 위에서 호출해도 호이스트돼서 실행된다
+
+      //2)함수 표현식
+      //console.log(greet());//위에서 호출하면 실행 안됨(표현식은 호이스팅 안됨)
+
+      const greet = function sayHi() {
+        //함수는 const많이 씀
+        return "Hi!";
+      };
+      console.log(greet());
+
+      //화살표 함수
+      function sayhello() {
+        return "Hello~";
+      } //을 화살표로:
+      const func1 = () => "Hello~";
+      console.log(func1());
+
+      //
+      const a = () => {}; //매개변수가 없는 경우
+      const b = (x) => {}; //매개변수가 있는 경우. 사실 이렇게 한개면 ()생략 가능
+      const c = (x, y) => {};
+      const d = (x) => {
+        return 2 * x;
+      };
+      const e = (x) => 2 * x;
+      const f = (x) => {
+        console.log(2 * x);
+        return 2 * x;
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

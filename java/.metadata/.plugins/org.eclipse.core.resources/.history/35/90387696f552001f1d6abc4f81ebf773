@@ -1,0 +1,30 @@
+package lee.fileex;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+
+public class FileExMain {
+
+	public static void main(String[] args) {
+		/* "."은 현재 디렉토리의 File객체 생성 */
+		File curDirectory = new File("."); 
+		
+		File[] files = curDirectory.listFiles();
+		
+		System.out.println(files[1].isDirectory());
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+//		System.out.println(sdf.format(files[1].lastModified()));
+		
+		for( File f : files) {
+			System.out.printf(sdf.format(f.lastModified()));
+			if(f.isDirectory()) {
+				System.out.printf(" <DIR> ",f.getName());
+			}else {
+				System.out.printf(" "+f.length()+" ", f.getName());
+			}
+			System.out.println();
+		}
+	}
+
+}

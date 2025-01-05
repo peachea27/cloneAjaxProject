@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If ~ else if ~else 문</title>
+    <script>
+      //사용자에게 이름, 국어, 영어, 수학 점수를 입력받아,
+      //총점, 평균을 구하고,
+      //학점을 구해 테이블로 출력하는 프로그램을 작성해 보세요.
+      //  단, 평균이 90점 이상 100점 이하: A
+      //  평균이 80점 이상 90점 미만 : B
+      //  70점 이상 80점 미만 : C
+      //  60점 이상 70점 미만 :D
+      //  나머지는: F
+
+      //1)사용자에게 이름과 국,영,수 점수를 입력받아, 각 변수에 저장
+
+      //2)총점, 평균을 구한다.
+
+      //3)학점을 구한다.
+
+      //4)테이블로 성적표를 출력한다.
+
+      let stuName = window.prompt("이름을 입력하세요");
+      console.log(stuName);
+
+      let kor = Number(window.prompt("국어 점수를 입력하세요", "0"));
+
+      let eng = Number(window.prompt("영어 점수를 입력하세요", "0"));
+
+      let math = Number(window.prompt("수학 점수를 입력하세요", "0"));
+
+      console.log(kor, eng, math);
+      console.log(typeof kor); //문자로 인식string,계산이 안됨 ->Number붙여줘야
+
+      let tot = kor + eng + math;
+      console.log(tot);
+
+      let avg = tot / 3;
+      console.log(stuName, kor, eng, math, tot, avg);
+
+      let grade = "";
+
+      switch (true) {
+        case avg >= 90 && avg <= 100:
+          grade = "A";
+          break;
+
+        case avg >= 80 && avg < 90:
+          grade = "B";
+          break;
+
+        case avg >= 70 && avg < 80:
+          grade = "C";
+          break;
+
+        case avg >= 60 && avg < 70:
+          grade = "D";
+          break;
+
+        default:
+          grade = "F";
+      }
+
+      /*---------------------------------------------------
+      let val;
+      val1 = avg >= 90 && avg <= 100;
+      val2 = avg >= 80 && avg < 90;
+      val3 = avg >= 70 && avg < 80;
+      val4 = avg >= 60 && avg < 70;
+
+      grade1 = "";
+
+      switch (val) {
+        case val1:
+          grade1 = "A";
+          break;
+
+        case val2:
+          grade1 = "B";
+          break;
+
+        case val3:
+          grade1 = "C";
+          break;
+
+        case val4:
+          grade1 = "D";
+          break;
+
+        default:
+          grade1 = "F";
+      }
+
+      console.log(val);
+
+      /* if (avg >= 90 && avg <= 100) {
+         grade = "A";
+       } else if (avg >= 80 && avg < 90) {
+         grade = "B";
+       } else if (avg >= 70 && avg < 80) {
+         grade = "C";
+       } else if (avg >= 60 && avg < 70) {
+         grade = "D";
+       } else {
+         grade = "F";
+       }*/
+
+      /*-----------------------------------------------------------------*/
+
+      let grade2 = "";
+      console.log(Math.floor(avg / 10));
+
+      switch (Math.floor(avg / 10)) {
+        case 10:
+        case 9:
+          grade2 = "A";
+          break;
+
+        case 8:
+          grade2 = "B";
+          break;
+
+        case 7:
+          grade2 = "C";
+          break;
+
+        case 6:
+          grade2 = "D";
+          break;
+
+        default:
+          grade2 = "F";
+      }
+
+      console.log(grade);
+      console.log(grade1);
+
+      let output = `<table class='score'><tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>학점</td></tr>
+         <tr><td>${stuName}</td><td>${kor}</td><td>${eng}</td><td>${math}</td><td>${tot}</td><td>${avg}</td><td>${grade}</td></tr></table>`;
+
+      /* let output1 = `<br/><table class='score'><tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>학점</td></tr>
+         <tr><td>${stuName}</td><td>${kor}</td><td>${eng}</td><td>${math}</td><td>${tot}</td><td>${avg}</td><td>${grade1}</td></tr></table>`;*/
+
+      let output2 = `<br/><table class='score'><tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>학점</td></tr>
+         <tr><td>${stuName}</td><td>${kor}</td><td>${eng}</td><td>${math}</td><td>${tot}</td><td>${avg}</td><td>${grade2}</td></tr></table>`;
+
+      document.write(output);
+      document.write(output1);
+      document.write(output2);
+    </script>
+    <style>
+      .score,
+      tr,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch~ case 문</title>
+    <script>
+      //switch문은 if문으로 바꿀 수 있지만 모든 if문을 switch문으로 바꿀 수 있는 건 아님
+      let data = "orange";
+
+      switch (data) {
+        case "orange":
+          console.log("오렌지는 천원");
+        //break;
+
+        case "cherry":
+          console.log("체리는 오천원");
+          break;
+
+        case "apple":
+          console.log("사과는 오천원");
+          break;
+
+        default:
+          console.log("찾으시는 과일이 없습니다.");
+      }
+
+      // cherry의 break를 없애면 체리로 들어가서 그 다음 케이스까지 찍힘
+      console.log("switch문을 나왔습니다");
+
+      let num = prompt("숫자를 입력하세요");
+      //"1"
+      switch (num) {
+        case "0":
+        case "1":
+          console.log("입력값: 0 또는 1");
+          break;
+
+        case "2":
+          console.log("2");
+          break;
+
+        case 3: //string으로 들어오는데 숫자값이라 3이 아닌 디폴트로 넘어감
+          console.log("3");
+          break;
+
+        default:
+          console.log("기타 등등");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

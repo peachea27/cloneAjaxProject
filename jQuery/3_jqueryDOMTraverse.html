@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      $(function () {
+        console.log($(".tr td").eq(0).html()); //1
+        //3번 접근
+        console.log($(".tr td").eq(2).html()); //3
+        // //next():nextElementSibling
+        console.log($(".tr td").eq(0).next().next().html()); //3
+        //5번에서 시작->4번
+        console.log($("#td5").prev().html()); //4
+
+        //parent()
+        //children()
+        //1에서 시작->4번 접근
+        console.log($(".tr td").eq(0).parent().next().children().eq(0).html()); //다른 tr에 있으므로 부모요소로 접근
+
+        //5번 시작 ->9번
+        console.log($("#td5").parent().next().children().eq(2).html());
+
+        //jquery는 이렇게 딱 어떤 요소만 꾸며주는게 아니라 연결되어있어서 계속 리디렉팅함 좀 느려질 수 있다
+
+        //1번의 배경색을 노란색으로
+        $(".tr td").eq(0).css("background-color", "yellow");
+        $(".tr td:first").css("background-color", "green");
+
+        $("table").eq(0).css("width", "200px");
+
+        //5번 '5'라는 글자 앞에 a라는 글자를 진하게 넣기
+        $("#td5").prepend("<b>a</b>"); //strong
+        //9번의 배경색을 파란색으로 바꾸고 글자색은 하얀색으로 바꾸기
+        $("#td9").css("background-color", "royalblue");
+        $("#td9").css("color", "white");
+
+        $("#td5").css({ "background-color": "orange", color: "white" });
+        //8을 100으로 변경
+        $("#td9").prev().html("100");
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr class="tr">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr class="tr">
+        <td>4</td>
+        <td id="td5">5</td>
+        <td>6</td>
+      </tr>
+      <tr class="tr">
+        <td>7</td>
+        <td>8</td>
+        <td id="td9">9</td>
+      </tr>
+    </table>
+  </body>
+</html>

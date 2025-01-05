@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/commonJS.js"></script>
+    <title>공지사항 팝업창</title>
+    <script>
+      //유저가 check박스에 체크를 했다면 =>쿠키를 남기고 닫기
+      //이름을 close로 지으면 안된다
+      function isChecked() {
+        const checkbox = document.getElementById("mycheckbox");
+        let isChecked = checkbox.checked;
+        console.log(isChecked);
+        if (isChecked == true) {
+          //쿠키 저장
+          //alert('체크됨-쿠키 저장하자')
+          //쿠키 이름: notice, 값: Y //팀프로젝트할 때 이런건 회의해서 정하고 노션에 공유해가며 해야 문제가 없음
+
+          saveCookie('notice','Y',1);
+          // let myCookie = "";
+          // let now = new Date();
+          // now.setDate(now.getDate() + 1);
+          // myCookie = "cookie=cookie24;expires=" + now.toUTCString();
+
+          // document.cookie = myCookie;
+
+           window.close();
+
+        } else {
+          window.close();
+        }
+      }
+
+      //유저가 check박스에 체크를 하지 않았다면 => 그냥 닫기
+    </script>
+  </head>
+  <body>
+    <div class="notice">
+      <h1>공지사항</h1>
+        <div>쿠키를 열심히 공부해 봅시다.</div>
+        <div class="check">
+          <input type="checkbox" id="mycheckbox" />하루 동안 이 창 열지 않기
+        </div>
+        <!-- 체크가 됐는지 알기 위해 쿠키를 저장해야 함. 하루동안 저장되는 쿠키 -->
+        <div class="close">
+          <input type="button" value="닫기" onclick="isChecked()" />
+          <!-- 윈도우객체의 클로즈 -->
+        </div>
+      </h1>
+    </div>
+  </body>
+</html>

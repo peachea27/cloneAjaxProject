@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function txtLoad() {
+        $.ajax({
+          url: "http://aabbcc1121.cafe24.com/lyh/accounts.json", //데이터가 송수신될 서버의 주소
+          type: "GET", //통신방식(GET,POST,PUT,DELETE)
+          dataType: "json", //수신 받을 데이터 타입(Mine Type)
+          success: function (data) {
+            //통신이 성공하면 수행할 함수
+            console.log(data);
+            parsingJson(data);
+          },
+          error: function () {},
+          complete: function () {
+            //통신이 완료되면 수행
+          },
+        });
+      }
+
+      function parsingJson(json) {
+        console.log(json[0].owner);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="로딩" onclick="txtLoad();" />
+    <div id="output"></div>
+  </body>
+</html>

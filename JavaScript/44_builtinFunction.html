@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // //1.eval():자바스크립트 명령어를 실행한다
+      // 경고: 주의: 문자열로부터 eval() 을 실행하는 것은 엄청나게 위험합니다. eval() 을 사용하면 해커가 위험한 코드를 사용할 수 있습니다. 아래에 eval을 절대 사용하지 말 것!을 확인하세요.
+      let result = eval("3 * 2 + 5");
+      console.log(result);
+
+      var str1 = "var num1 = 10"; //let 키워드로 하면 에러남
+      var str2 = "var num2 = 20";
+      eval(str1);
+      eval(str2);
+      console.log(num1 + num2);
+
+      //2.parseInt() : 문자열 중 정수로 변환이 되는 부분을 정수로 변환
+      console.log(parseInt("3.94")); //3
+      console.log(typeof parseInt("3.94")); //number
+      console.log(parseInt("3.94입니다")); //3
+      //2-1. parseFloat(): 실수로 변환
+      console.log(parseFloat("3.141592입니다.")); //3.141592
+      console.log(typeof parseFloat("3.141592입니다.")); //number
+
+      //3. isNaN() :숫자인지 아닌지 판별.
+      console.log(isNaN(3)); //false
+
+      //4.isFinite() :유한 (숫자)인지 판별
+      console.log(isFinite(1 / 0)); //false
+      console.log(isFinite(3.14)); //true
+      console.log(isFinite("숫자")); //false
+
+      //3.인코딩, 디코딩 함수
+      let qStr = "자바 Script()-_.~*!'#";
+      console.log(encodeURIComponent(qStr)); //인코딩, 영어는 에러가 잘 나지 않으므로 인코딩하지 않음..-_.~*!'은 인코딩 되지 않지만 #은 인코딩함
+      console.log(decodeURIComponent(encodeURIComponent(qStr))); //디코딩
+    </script>
+  </head>
+  <body></body>
+</html>

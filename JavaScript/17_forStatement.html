@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문:for</title>
+    <script>
+      for (let i = 0; i < 5; i++) /*<=4보다 <5를 써서 계산 하나 줄임*/ {
+        //i=0,1,2,3,4
+        document.write(`${i}번째 <br/>`);
+      }
+      //console.log(i);밖에서는 인식 못함
+      for (let i = 0; i > 5; i--) /*<=4보다 <5를 써서 계산 하나 줄임*/ {
+        //반복안됨
+        document.write(`${i}번째 <br/>`);
+      } //지역변수이기 때문에 i 또 써도 상관없음
+
+      document.write("<hr />");
+      for (let i = 0; i < 5; i += 2) /*<=4보다 <5를 써서 계산 하나 줄임*/ {
+        //i=0,2,4
+
+        document.write(`${i}번째 <br/>`);
+      }
+
+      //ul태그 안에 li태그를 5회 나오도록, li태그 안에 1,2,3,4,5가 들어가도록 만드세요.
+
+      let outputList = "<ul>";
+
+      for (let i = 0; i < 5; i++) {
+        outputList += `<li>${i + 1}</li>`;
+      }
+      outputList += "</ul>";
+      document.write(outputList);
+      //}
+    </script>
+  </head>
+  <body></body>
+</html>

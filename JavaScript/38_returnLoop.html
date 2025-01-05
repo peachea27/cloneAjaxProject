@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      testReturn();
+
+      function testReturn() {
+        let sum = 0;
+        for (let i = 0; i < 10; i++) {
+          if (sum > 10) {
+            return;
+          }
+          //if~부분이 없어야 여기까지 실행될까요 실행, return하면 10보다 큰 순간 함수가 종료
+
+          sum += i;
+          console.log(i, sum);
+        }
+        console.log("여기까지 실행될까요?");
+      }
+
+      //for each : break,return 적용 안됨!!
+      testReturnforEach();
+
+      function testReturnforEach() {
+        let arr = [1, 2, 3, 4, 5];
+
+        arr.forEach(function (item, index) {
+          if (item == 3) {
+            return;
+          } //3을 건너뜀
+          console.log(item, index);
+        });
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

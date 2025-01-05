@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탐색(데이터탐색):순차 탐색</title>
+    <script>
+      //1)방이 50개 짜리 1차원 배열을 만들고,
+      //그 방안에 1~200까지의 랜덤한 수를 넣고
+      //테이블(5행 10열)에 랜덤 수를 출력하세요.
+
+      //   let array1 = new Array(50);
+      //   let tableTag = "<table border=1px>";
+
+      //   for (i = 0; i < 50; i++) {
+      //     array1 = [Math.floor(Math.random() * 200 + 1)];
+      //     console.log(array1);
+      //     // for (let nums of array1) {
+      //     //   document.write(array1 + "<br />");
+      //     // }
+      //   }
+
+      //   for (i = 0; i < 5; i++) {
+      //     tableTag += "<tr>";
+      //     for (j = 0; j < 10; j++) {
+      //       tableTag += `<td>`;
+      //       for (s = 0; s < 50; s++) {
+      //         tableTag += array1[s];
+      //       }
+      //       for (j = 0; j < 50; j++) {
+      //         tableTag += `</td>`;
+      //       }
+      //     }
+
+      //     tableTag += "</tr>";
+      //   }
+      //   tableTag += "</table>";
+
+      //   document.write(tableTag);
+
+      let data = new Array(50);
+
+      console.log(Math.floor(Math.random() * 200 + 1));
+
+      for (let i = 0; i < data.length; i++) {
+        data[i] = Math.floor(Math.random() * 200 + 1);
+      }
+      console.log(data);
+      let cnt = 0;
+
+      let table = "<table border=1>";
+      for (let r = 0; r < 5; r++) {
+        table += "<tr>";
+        for (let c = 0; c < 10; c++) {
+          table += `<td>${data[cnt++]}</td>`;
+        }
+        table += "</tr>";
+      }
+      table += "</table>";
+      document.write(table);
+
+      //2)유저에게 찾을 수를 입력받아서,
+      //유저가 찾은 숫자가 몇번째에 있는지 출력한다.
+
+      let userNum = Number(window.prompt("찾을 숫자를 입력하세요"));
+      let result = "";
+      let isFind = false; //초기값은 경우가 많은 false(못찾는 경우>찾는 경우)
+
+      //탐색작업
+      for (let i = 0; i < data.length; i++) {
+        data[0];
+        if (data[i] == userNum) {
+          //찾았다!
+          result += i + ",";
+          isFind = true; //찾는하나라도 있으면 이 값이 덮어씀
+        }
+      }
+      //3)출력
+      if (isFind == false) {
+        document.write(`${userNum}을 찾지 못했습니다.`);
+      } else {
+        document.write(`${userNum}은 ${result}번째에 있습니다.`);
+        let tds = document.getElementsByTagName("td"); //모든 td태그를 찾아서 유사배열로 반환
+        console.log(tds);
+        //td들의 값 다 가져옴
+        console.log(tds[0].innerHTML); //참고)수를 찾을때만 반환값이 있음
+
+        for (let td of tds) {
+          console.log(td);
+          if (userNum == td.innerHTML) {
+            td.style.backgroundColor = "yellow";
+            td.innerHTML = "★" + userNum;
+          }
+        }
+      }
+      //console.log(document.getElementsByTagName('td').length);
+    </script>
+  </head>
+  <body>
+    <div id="tableHere"></div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+D:\lecture\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2658272158.index
+\SpringBasic\src\main\java
+D:\lecture\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1859829832.index
+\SpringBasic\src\main\java
+D:\lecture\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1847363642.index
+\MiniProject\src\main\java
+D:\lecture\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2211683274.index
+\MiniProject\src\main\java

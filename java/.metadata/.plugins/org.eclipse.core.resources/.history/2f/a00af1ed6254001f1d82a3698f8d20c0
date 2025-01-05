@@ -1,0 +1,10 @@
+package com.lee.dao;
+
+import java.util.List;
+
+import com.lee.vo.Friend;
+
+public interface FriendsMgmDAO {
+
+	List<Friend> selectAllFriends();
+}

@@ -1,0 +1,32 @@
+package cardDealer.lee;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Player {
+	static int cardsNum =5;
+	 Card[] cards;
+
+	Player(){
+		cards=new Card[cardsNum];
+	}
+
+	public void versus(Player p2) {
+		int p1Sum = 0;
+		int p2Sum = 0;
+		for(int i = 0; i <cardsNum;i++) {
+		p1Sum+=this.cards[i].getNum();
+		p2Sum+=p2.cards[i].getNum();
+	}
+		System.out.println("플레이어1:"+p1Sum+"vs 플레이어2:"+p2Sum);
+		if(p1Sum > p2Sum) {
+			System.out.println("플레이어1의 승리!");
+		}else if(p1Sum < p2Sum) {
+			System.out.println("플레이어12의 승리!");
+		}else {
+			System.out.println("무승부ㅠ.ㅠ");
+		}
+	}
+}
+
+	

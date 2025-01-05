@@ -1,0 +1,21 @@
+package com.lee.controller;
+
+import java.sql.SQLException;
+
+import com.lee.controller.service.FriendManagementService;
+import com.lee.dao.FriendsMgmDAO;
+import com.lee.dao.FriendsMgmDAOImpl;
+import com.lee.dto.SearchNameDTO;
+import com.lee.view.FriendDBInsert;
+
+public class SearchByNameService implements FriendManagementService {
+
+	@Override
+	public void toDo() throws ClassNotFoundException, SQLException {
+		FriendsMgmDAO dao = FriendsMgmDAOImpl.getInstance();
+		
+		SearchNameDTO dto = FriendDBInsert.getSearchByNameData();
+		dao.selectFriendByName(dto);
+	}
+
+}

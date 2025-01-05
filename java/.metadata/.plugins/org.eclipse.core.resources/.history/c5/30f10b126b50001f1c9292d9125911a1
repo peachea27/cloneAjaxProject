@@ -1,0 +1,27 @@
+package cardDealer.ksy;
+
+public class Card {
+
+	private int num;
+	private Kind kind;
+	
+	public Card(int num, Kind kind) {
+		this.num =num;
+		this.kind =kind;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public Kind getKind() {
+		return kind;
+	}
+
+	@Override
+	public String toString() {
+		return num+ kind.toString();
+	}
+	
+	
+}

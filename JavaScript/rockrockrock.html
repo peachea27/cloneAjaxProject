@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let win = 0;
+      let draw = 0;
+      let lose = 0;
+      let winRate = 0;
+
+      function choice() {
+        let yours = Number(document.getElementById("attack").value);
+        let mine = Math.floor(Math.random() * 3 + 1);
+
+        console.log(yours, mine, winRate);
+        console.log(typeof yours, typeof mine);
+        let handsign = "";
+        let handsign1 = "";
+        let victory = "";
+
+        switch (yours) {
+          case 1:
+            handsign = "images/scissors.png";
+            break;
+          case 2:
+            handsign = "images/fist.png";
+            break;
+          case 3:
+            handsign = "images/stop.png";
+            break;
+        }
+        switch (mine) {
+          case 1:
+            handsign1 = "images/scissors.png";
+            break;
+          case 2:
+            handsign1 = "images/fist.png";
+            break;
+          case 3:
+            handsign1 = "images/stop.png";
+            break;
+        }
+
+        if (yours == 3 && mine == 1) {
+          victory = "당신의 패배";
+          lose++;
+        } else if (yours == 1 && mine == 3) {
+          victory = "당신의 승리";
+          win++;
+        } else if (yours == mine) {
+          victory = "무승부";
+          draw++;
+        } else if (yours > mine) {
+          victory = "당신의 승리";
+          win++;
+        } else {
+          victory = "당신의 패배";
+          lose++;
+        }
+        winRate = Number((win / (win + lose)) * 100);
+
+        document.getElementById("urhand").src = handsign;
+        document.getElementById("myhand").src = handsign1;
+        document.getElementById("divResult").innerHTML = victory;
+        document.getElementById(
+          "divFinal"
+        ).innerHTML = `당신의 전적은 ${win}승 ${draw}무 ${lose}패 입니다. 당신의 승률은 ${winRate.toFixed()} 입니다.`;
+      }
+    </script>
+  </head>
+  <body>
+    <select name="" id="attack">
+      <option value="1">가위</option>
+      <option value="2">바위</option>
+      <option value="3">보</option>
+    </select>
+    <button onclick="choice()">선택</button>
+    <table>
+      <tr>
+        <td>
+          <img id="urhand" src="" alt="" />
+        </td>
+        <td>
+          <img id="myhand" src="" alt="" />
+        </td>
+      </tr>
+    </table>
+    <div id="divResult"></div>
+    <div id="divFinal"></div>
+  </body>
+</html>

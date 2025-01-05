@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중앙에 배치</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: url("images/apples.jpg") no-repeat left top;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex; /*부모에 적용*/
+        justify-content: center; /*기본축의 센터*/
+        align-items: center; /*교차축의 센터*/
+      }
+      button {
+        background-color: pink;
+        font-size: 1.2em;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Click!</button>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성 선택자</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+
+      li {
+        width: 120px;
+        display: inline-block;
+      }
+      li a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      a[href] {
+        background-color: yellow;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a>메인 메뉴 :</a></li>
+      <li><a href="#">메뉴1</a></li>
+      <!--주소를 아직 안정했을땐 일단 #-->
+      <li><a href="#">메뉴2</a></li>
+      <!--ctrl alt direc-->
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+    </ul>
+  </body>
+</html>

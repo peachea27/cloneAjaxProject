@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+
+      div {
+        width: 500px;
+        height: 300px;
+        background-color: salmon;
+        background-image: url("images/man.png");
+        /* background-size: 100px;*/
+        background-repeat: no-repeat;
+        /*background-position: top right;*/
+        /*background-position: 100px 50px; x,y값*/
+        /* background-size: cover; 꽉참, 비율 안맞아서 잘림
+        cover는 비율을 유지, div요소의 더 넓은 너비에 맞춤
+        contain은 비율을 유지,div요소의 더 짧은 너비에 맞춤*/
+        background-size: contain; /*비율 맞춰서 채움*/
+        background-attachment: fixed; /*scroll이 기본:이미지가 요소를 따라서 같이 스크롤되지만 fixed는 이미지가 뷰포트에 고정, 스크롤 되지 않음*/
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+package lee.inheritance.superconstructor;
+
+
+class Parent{
+	Parent(){
+		System.out.println("부모 생성자 호출");
+//		source generate using fields
+		
+	}
+
+	/**
+	 * 
+	 */
+//	public Parent() {
+//		super();
+//	}
+	
+//	Parent (int a){
+//		System.out.println("부모생성자 a : " + a);
+//	}
+}
+
+class Child extends Parent{
+//	Child(){//1^^
+//		System.out.println("자식 생성자 호출");
+//	}
+	
+	Child(int a){
+		super();// 기본 생성자 생략 가능
+		//기본생성자가 없다면 super(10);숫자하나 받는거라도 불러줘야 함
+		System.out.println("자식 생성자 a : "+ a);
+	}
+	Child(int a, int b){
+		//얘도 상속관계가 있기 때문에 부모를 호출해야 함. 즉, 우리가 안썼지만 자동으로 super()호출하고 있다는 뜻
+		System.out.println("자식생성자 a : " + a+", b : "+ b);
+	}
+}
+
+class GrandChild extends Child{
+	GrandChild() {
+//	(	super();        )이걸 자동으로 생성해서 부르는데 없는거.. 반드시 super를 호출해야 하는데 기본생성자가 없는 상황(1^^)
+		//기본은 없지만 있는 생성자를 호출하자
+		super(30,40);//원칙임, 무조건 부모가 있어야(생성자)
+		System.out.println("손자 생성자");
+	}
+}
+public class SuperConstrucMain {
+
+	public static void main(String[] args) {//public이 없으면 상관없지만 있다면 파일이름과 일치해야
+//		Child child = new Child();
+//		Child child1 = new Child(10);
+//		Child child2 = new Child(100,200);
+		//손자를 찍기에 앞서 앞의 세개 주석+child기본생성자 (1^^)주석
+		//Implicit super constructor Child() is undefined. Must explicitly invoke another constructor
+		GrandChild grandChild = new GrandChild();
+	}
+
+}

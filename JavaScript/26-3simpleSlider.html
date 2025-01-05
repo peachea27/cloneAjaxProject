@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열을 이용한 초간단 슬라이더 만들기</title>
+    <script>
+      //1)이미지배열을 만든다, 이미지를 5개 정도인 array(이미지 경로 포함해서 이름 넣으면 됨)
+      //ex) image[0]='images/apples.jpg';
+      //0번째에서 이전을 누르면 가장 끝으로 가고, 가장 끝에서 다음을 누르면 0으로 가도록 연결
+      let intervalId;
+      let i = 0;
+
+      let food = [
+        "images/apples.jpg",
+        "images/chicken.jpg",
+        "images/fishbread.jpg",
+        "images/hotdog.jpg",
+        "images/jjajang.jpg",
+      ];
+
+      console.log(food);
+
+      // window.onload = function () {
+      //   let slide = document.getElementById("imgSlider");
+      //   slide.src = food[i];
+      // };
+
+      function prev() {
+        i--; //Answer: 이걸 안쓰고 대신
+        if (i < 0) {
+          i = food.length - 1;
+        }
+        document.getElementById("imgSlider").src = food[i];
+      }
+      //Answer: if(i==0){
+      //  i=food.length;
+      //}
+      //Answer: document.getElementById('imgSlider').src=food[--i];
+      function next() {
+        i++;
+        if (i > food.length - 1) {
+          //Answer: i==food.length 하면 끝에서 오류,
+          i = 0;
+        }
+        document.getElementById("imgSlider").src = food[i];
+      }
+      //Answer: if(i==food.length-1){
+      //  i=-1; }
+      //document.getElementById('imgSlider').src=food[i++]
+
+      //Answer2: if (++i==food.length){i=0;}
+      //   function next() {
+      //     document.getElementById("imgSlider").src = food[i];
+      //     console.log(i);
+      //   }
+
+      function auto() {
+        intervalId = window.setInterval(next, 1000);
+      }
+
+      function stopAuto() {
+        clearInterval(intervalId);
+      }
+    </script>
+    <style>
+      img {
+        width: 300px;
+        height: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="images/samg.jpg" alt="" id="imgSlider" />
+    </div>
+    <button onclick="prev();">이전</button>
+    <button onclick="next();">다음</button>
+    <button onclick="auto()">자동시작</button>
+    <button onclick="stopAuto()">자동정지</button>
+  </body>
+</html>
